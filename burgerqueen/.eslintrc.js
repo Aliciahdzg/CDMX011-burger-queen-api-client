@@ -8,6 +8,7 @@ module.exports = {
     'airbnb',
     'plugin:jsx-a11y/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:jest/recommended',
     'prettier'
   ],
   parserOptions: {
