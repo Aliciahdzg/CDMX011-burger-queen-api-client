@@ -2,11 +2,15 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { Icon } from '@iconify/react';
 import auth from '../firebase/firebaseConfig';
+import Logo from '../assets/logo.png';
+import './styles/Login.scss';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const navigate = useNavigate();
 
@@ -15,26 +19,39 @@ const Login = () => {
       .then(() => {
         navigate('orders');
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
+      .catch(() => {
+        setError('Contraseña y/o correo inválidos');
+        setTimeout(() => setError(''), 2500);
       });
   };
 
   return (
     <div className="login-container">
-      <form>
+      <img src={Logo} alt="Logo" className="logo" />
+      <form className="login-form">
         <h1>Iniciar Sesión</h1>
-        <input
-          placeholder="Correo electronico"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          placeholder="Contraseña"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="div-email">
+          <Icon icon="carbon:email" color="#f3e1cb" height="40" />
+          <input
+            type="email"
+            placeholder="Correo electrónico"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="div-password">
+          <Icon
+            className="icon-pass"
+            icon="teenyicons:password-outline"
+            color="#f3e1cb"
+            height="40"
+          />
+          <input
+            type="password"
+            placeholder="Contraseña"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        {error && <p className="error">{error}</p>}
       </form>
       <button
         type="button"
