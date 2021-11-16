@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
-import './style/Login.scss';
-import Logo from '../assets/logo.png';
 import auth from '../firebase/firebaseConfig';
+import Logo from '../assets/logo.png';
+import './styles/Login.scss';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -20,21 +20,21 @@ const Login = () => {
         navigate('orders');
       })
       .catch(() => {
-        setError('Contraseña y/o correo inválidos.');
+        setError('Contraseña y/o correo inválidos');
         setTimeout(() => setError(''), 2500);
       });
   };
 
   return (
     <div className="login-container">
-      <img src={Logo} alt="logo" className="logo" />
+      <img src={Logo} alt="Logo" className="logo" />
       <form className="login-form">
         <h1>Iniciar Sesión</h1>
         <div className="div-email">
           <Icon icon="carbon:email" color="#f3e1cb" height="40" />
           <input
             type="email"
-            placeholder="Correo electronico"
+            placeholder="Correo electrónico"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
@@ -51,7 +51,6 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-
         {error && <p className="error">{error}</p>}
       </form>
       <button
