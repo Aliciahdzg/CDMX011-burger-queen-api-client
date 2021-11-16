@@ -19,10 +19,7 @@ const Login = () => {
       .then(() => {
         navigate('orders');
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+      .catch(() => {
         setError('Contraseña y/o correo inválidos.');
         setTimeout(() => setError(''), 2500);
       });
