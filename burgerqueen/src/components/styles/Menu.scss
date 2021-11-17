@@ -3,28 +3,31 @@
 .menu-options {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 9vmin;
   button {
     font-family: $titulos;
     margin-right: 1vmin;
     background-color: transparent;
     border-radius: 9px 9px 0px 0px;
-    border: 1px solid #f2884b;
+    border: 1px solid $orange;
     font-size: 2.5vmin;
     color: $orange;
 
     &:focus {
-      background-color: #f2884b;
+      background-color: $orange;
       color: $black;
     }
+   
   }
 }
 .menu-food {
-  background-color: rgba(158, 149, 137, 0.65);
+  background-color:$creamblur;
   display: flex;
   flex-direction: column;
   border-radius: 0px 0px 10px 10px;
-  border-top: 2px solid #f2884b;
-  margin-right: 6vmin;
+  border-top: 2px solid $orange;
+  margin-right: 4vmin;
+  height: 84%;
 
   ul {
     display: flex;

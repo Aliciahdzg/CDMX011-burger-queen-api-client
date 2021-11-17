@@ -11,12 +11,14 @@ input{
     outline: none;
   cursor: pointer;
   font-family: $body;
+  font-size: 3vmin;
     color: $cream;
     background-color: $creamblur;
-    width: 96%;
+    width: 94%;
     height: 3.7vmin;
     align-items: center;
     padding-top:1vmin;
+    padding-left:2vmin;
     
 }
 ::placeholder {
