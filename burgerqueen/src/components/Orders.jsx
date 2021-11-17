@@ -30,15 +30,17 @@ const Orders = () => {
 
   const removeItem = (item) => {
     const exist = resumItems.find((x) => x.id === item.id);
-    if (exist.qty === 1) {
-      setResumItems(resumItems.filter((x) => x.id !== item.id));
-    } else {
-      setResumItems(
-        resumItems.map((x) =>
-          x.id === item.id ? { ...exist, qty: exist.qty - 1 } : x
-        )
-      );
+    if (exist === undefined) {
+      return '';
     }
+    if (exist.qty === 1) {
+      return setResumItems(resumItems.filter((x) => x.id !== item.id));
+    }
+    return setResumItems(
+      resumItems.map((x) =>
+        x.id === item.id ? { ...exist, qty: exist.qty - 1 } : x
+      )
+    );
   };
 
   const removeAll = (item) => {
@@ -79,7 +81,7 @@ const Orders = () => {
             </button>
           </div>
 
-          <div className="menu-food">     
+          <div className="menu-food">
             {activeMenu === 'breakfast' && (
               <Breackfast
                 addItem={addItem}
