@@ -1,136 +1,130 @@
 @import './Variables.scss';
 
-.resum-content{
-    padding:0 4vmin 0 4vmin;
-
+.resum-content {
+  padding: 0 4vmin 0 4vmin;
 }
-.div-client-name{
-input{
+.div-client-name {
+  input {
     border: 1.5px solid $yellow;
-    border-radius: 10px;  
+    border-radius: 10px;
     outline: none;
-  cursor: pointer;
-  font-family: $body;
-  font-size: 3vmin;
+    cursor: pointer;
+    font-family: $body;
+    font-size: 3vmin;
     color: $cream;
     background-color: $creamblur;
     width: 94%;
     height: 3.7vmin;
     align-items: center;
-    padding-top:1vmin;
-    padding-left:2vmin;
-    
-}
-::placeholder {
+    padding-top: 1vmin;
+    padding-left: 2vmin;
+  }
+  ::placeholder {
     color: $cream;
     font-family: $body;
     font-weight: 500;
     font-size: 3vmin;
   }
 }
-.resum-summary{
-    background: rgba(243, 225, 203, 0.88);
-    border-radius: 10px;  
-    width: 98%;
-    height: 75vmin;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 4vmin;
-    h3{
-        align-self: center;
-        text-align: center;
-        border-bottom: 2.5px solid $black;
-        width:70%;
-        font-family: $titulos;
-        font-size:2.5vmin;
-    }
-
-}
-.no-items{
-    p{
-        font-family: $body;
-         margin-left:3vmin; 
-         font-size: 2.5vmin; 
-    }
-}
-.titles{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-right:3vmin;
-    font-family: $titulos;
-    font-weight: 600;
-     color:$orange
-}
-.items-container{
-    height:44vmin;
-    display: flex;
-    flex-direction: column;
-}
-.item-body{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    align-content: stretch;
-    p{
-        margin:0;
-        font-family:$body;
-        font-size:2.3vmin;
-
-    }
-    #name{
-     width:49%;
-    }
-    #qty{
-        width:10%;
-        text-align: center;
-    }
-    #subtotal{
-        width:10%;
-        text-align: center;
-    }
-}
-.delete-icon{
-    width:10%;
-    background-color:transparent;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;;
-    margin:0
-}
-.div-total{
-    display: flex;
-    flex-direction: row;
-    border-top: 2.5px solid $black;
-    width:90%;
-    justify-content:space-between;
+.resum-summary {
+  background: rgba(243, 225, 203, 0.88);
+  border-radius: 10px;
+  width: 98%;
+  height: 75vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 4vmin;
+  h3 {
     align-self: center;
     text-align: center;
-    margin-top:2vmin;
-    align-items: center;
-    p{
-        font-family:$titulos;
-        font-size:2.6vmin;
-    }
-    span{
-        color:$orange;
-        font-weight: 600;
-    }
-button{
+    border-bottom: 2.5px solid $black;
+    width: 70%;
+    font-family: $titulos;
+    font-size: 2.5vmin;
+  }
+}
+.no-items {
+  p {
+    font-family: $body;
+    margin-left: 3vmin;
+    font-size: 2.5vmin;
+  }
+}
+.titles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-right: 3vmin;
+  font-family: $titulos;
+  font-weight: 600;
+  color: $orange;
+}
+.items-container {
+  height: 44vmin;
+  display: flex;
+  flex-direction: column;
+}
+.item-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  align-content: stretch;
+  p {
+    margin: 0;
+    font-family: $body;
+    font-size: 2.3vmin;
+  }
+  #name {
+    width: 49%;
+  }
+  #qty {
+    width: 10%;
+    text-align: center;
+  }
+  #subtotal {
+    width: 10%;
+    text-align: center;
+  }
+}
+.delete-icon {
+  width: 10%;
+  background-color: transparent;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+}
+.div-total {
+  display: flex;
+  flex-direction: row;
+  border-top: 2.5px solid $black;
+  width: 90%;
+  justify-content: space-between;
+  align-self: center;
+  text-align: center;
+  margin-top: 2vmin;
+  align-items: center;
+  p {
+    font-family: $titulos;
+    font-size: 2.6vmin;
+  }
+  span {
+    color: $orange;
+    font-weight: 600;
+  }
+  button {
     border-radius: 10px;
     cursor: pointer;
     align-items: center;
     border: none;
-    width:13vmin;
-    height:5.5vmin;
-    font-size:2.7vmin;
+    width: 13vmin;
+    height: 5.5vmin;
+    font-size: 2.7vmin;
     font-family: $titulos;
     font-weight: 400;
-    color:$black;
-    background-color:$orange;
-}
-    
-
+    color: $black;
+    background-color: $orange;
+  }
 }
