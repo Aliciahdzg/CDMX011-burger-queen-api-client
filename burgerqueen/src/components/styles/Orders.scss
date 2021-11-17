@@ -1,26 +1,31 @@
 @import './Variables.scss';
 
-.orders-content {
+
+.orders-content{
   background-image: url(../../assets/black-background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  width: 95%;
+  width: 100%;
   height: 100vmin;
   display: flex;
   flex-direction: column;
-  margin: 3vmin;
 }
-.div-resum-menu {
-  display: flex;
-  flex-direction: row;
+.div-resum-menu{
+    display: flex;
+    flex-direction: row;
+
 }
-.logo-orders-img {
-  width: 15vmin;
-  float: right;
+.div-logo-orders{
+    width: 100%;
 }
-.resum {
-  width: 50%;
+.logo-orders-img{
+    width: 10vmin;
+    float: right;
+    padding-right:4vmin;
 }
-.menu {
-  width: 50%;
+.resum{
+    width:50%;
+}
+.menu{
+    width:50%;
 }
