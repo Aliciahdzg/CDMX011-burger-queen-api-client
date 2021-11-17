@@ -11,18 +11,18 @@ const LunchItem = (props) => {
       <ul>
         <li className="item-name">{item.name}</li>
         <li className="item-price">$ {item.price}</li>
-        <button type="button" onClick={() => addItem(item)}>
-          <Icon
-            icon="akar-icons:circle-plus-fill"
-            color="#f2884b"
-            height="20"
-          />
-        </button>
         <button type="button" onClick={() => removeItem(item)}>
           <Icon
             icon="akar-icons:circle-minus-fill"
             color="#f2c744"
-            height="20"
+            height="30"
+          />
+        </button>
+        <button type="button" onClick={() => addItem(item)}>
+          <Icon
+            icon="akar-icons:circle-plus-fill"
+            color="#f2884b"
+            height="30"
           />
         </button>
       </ul>
