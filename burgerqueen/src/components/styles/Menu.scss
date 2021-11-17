@@ -1,0 +1,57 @@
+@import './Variables.scss';
+
+.menu-options {
+  display: flex;
+  flex-wrap: wrap;
+  button {
+    font-family: $titulos;
+    margin-right: 1vmin;
+    background-color: transparent;
+    border-radius: 9px 9px 0px 0px;
+    border: 1px solid #f2884b;
+    font-size: 2.5vmin;
+    color: $orange;
+
+    &:focus {
+      background-color: #f2884b;
+      color: $black;
+    }
+  }
+}
+.menu-food {
+  background-color: rgba(158, 149, 137, 0.65);
+  display: flex;
+  flex-direction: column;
+  border-radius: 0px 0px 10px 10px;
+  border-top: 2px solid #f2884b;
+  margin-right: 6vmin;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    font-family: $body;
+    font-size: 2.5vmin;
+    color: $cream;
+
+    button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: transparent;
+      border: solid transparent;
+      padding: 0;
+      justify-content: flex-end;
+    }
+  }
+}
+.item-name {
+  justify-content: left;
+  width: 60%;
+}
+
+.item-price {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+}

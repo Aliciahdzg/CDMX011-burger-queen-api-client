@@ -1,0 +1,31 @@
+@import './Variables.scss';
+
+
+.orders-content{
+  background-image: url(../../assets/black-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vmin;
+  display: flex;
+  flex-direction: column;
+}
+.div-resum-menu{
+    display: flex;
+    flex-direction: row;
+
+}
+.div-logo-orders{
+    width: 100%;
+}
+.logo-orders-img{
+    width: 10vmin;
+    float: right;
+    padding-right:4vmin;
+}
+.resum{
+    width:50%;
+}
+.menu{
+    width:50%;
+}
