@@ -7,7 +7,6 @@ const Lunch = (props) => {
 
   return (
     <div>
-      <h3>Comida</h3>
       {lunchMenu.map((item) => (
         <LunchItem
           key={item.id}

@@ -1,4 +1,5 @@
 import './styles/Orders.scss';
+import './styles/Menu.scss';
 import React, { useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import Logo from '../assets/upper-icon.png';
@@ -77,7 +78,8 @@ const Orders = () => {
               Comida
             </button>
           </div>
-          <div className="menu">
+
+          <div className="menu-food">     
             {activeMenu === 'breakfast' && (
               <Breackfast
                 addItem={addItem}
