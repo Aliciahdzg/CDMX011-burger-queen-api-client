@@ -1,18 +1,17 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-shadow */
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import auth from '../firebase/firebaseConfig';
 import Logo from '../assets/logo.png';
 import './styles/Login.scss';
 
-const Login = () => {
+const Login = (props) => {
+  const { navigate } = props;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
-  const navigate = useNavigate();
 
   const handleLogin = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)

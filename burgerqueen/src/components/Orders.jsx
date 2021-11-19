@@ -1,10 +1,12 @@
 import './styles/Orders.scss';
 import './styles/Menu.scss';
 import React, { useState } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 import Logo from '../assets/upper-icon.png';
 import auth from '../firebase/firebaseConfig';
 import Breackfast from './Breackfast';
+import Header from './Header';
 import Lunch from './Lunch';
 import Resum from './Resum';
 import data from '../data';
@@ -13,7 +15,8 @@ const Orders = () => {
   const { breakfastMenu, lunchMenu } = data;
   const [resumItems, setResumItems] = useState([]);
   const [activeMenu, setActiveMenu] = useState('breakfast');
-  // const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({});
+  const navigate = useNavigate();
 
   const addItem = (item) => {
     const exist = resumItems.find((x) => x.id === item.id);
@@ -50,15 +53,23 @@ const Orders = () => {
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      // setCurrentUser(user);
+      setCurrentUser(user);
     }
   });
 
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        navigate('/');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="orders-content">
-      <div className="div-logo-orders">
-        <img src={Logo} alt="Logo" className="logo-orders-img" />
-      </div>
+      <Header currentUser={currentUser} handleLogout={handleLogout} />
       <div className="div-resum-menu">
         <div className="resum">
           <Resum removeAll={removeAll} resumItems={resumItems} />
@@ -98,6 +109,9 @@ const Orders = () => {
             )}
           </div>
         </div>
+      </div>
+      <div className="div-logo-orders">
+        <img src={Logo} alt="Logo" className="logo-orders-img" />
       </div>
     </div>
   );
