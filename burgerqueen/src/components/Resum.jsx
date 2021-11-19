@@ -6,7 +6,6 @@ import { Icon } from '@iconify/react';
 import React, { useState, useEffect } from 'react';
 
 const Resum = (props) => {
-<<<<<<< HEAD
   const {
     resumItems,
     setResumItems,
@@ -17,11 +16,7 @@ const Resum = (props) => {
     urlK,
     order
   } = props;
-=======
-  const { resumItems, removeAll, createOrder } = props;
->>>>>>> 9c0abc7 (instalacion de json-server, creacion de los metodos get, put, delet, post, end points con la data)
   const [total, setTotal] = useState(0);
-  // const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
     if (resumItems.length === 0) {
@@ -33,9 +28,9 @@ const Resum = (props) => {
     return setTotal(prices.reduce(reducer));
   }, [resumItems]);
 
-  // const resetInputField = () => {
-  //   setInputValue('');
-  // };
+  const resetInputField = () => {
+     setClient('');
+   };
 
   const postOrder = () => {
     const options = {
@@ -54,7 +49,7 @@ const Resum = (props) => {
         }
       })
       .then(setResumItems([]))
-      .then(setClient(''));
+      .then(resetInputField());
   };
 
   return (
@@ -64,7 +59,7 @@ const Resum = (props) => {
           className="client-name"
           autoFocus
           placeholder="Nombre de cliente"
-          // value={inputValue}
+          value={inputValue}
           onChange={(e) => setClient(e.target.value)}
         />
       </div>
@@ -105,17 +100,12 @@ const Resum = (props) => {
               <span>Total:</span> $ {total} .00
             </p>
           )}
-<<<<<<< HEAD
           <button
             type="button"
             onClick={() => {
               postOrder();
-              //  resetInputField();
             }}
           >
-=======
-          <button type="button" onClick={() => createOrder()}>
->>>>>>> 9c0abc7 (instalacion de json-server, creacion de los metodos get, put, delet, post, end points con la data)
             Enviar
           </button>
         </div>
