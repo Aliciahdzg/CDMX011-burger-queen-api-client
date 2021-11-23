@@ -1,6 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-shadow */
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router';
@@ -8,11 +5,16 @@ import auth from '../firebase/firebaseConfig';
 import Logo from '../assets/logo.png';
 import FormLogin from './FormLogin';
 import './styles/Login.scss';
+import FormLogin from './FormLogin';
 
 const Login = () => {
+<<<<<<< HEAD
   const [error, setError] = useState('');
 
+=======
+>>>>>>> 9c0abc7 (instalacion de json-server, creacion de los metodos get, put, delet, post, end points con la data)
   const navigate = useNavigate();
+  const [error, setError] = useState('');
 
   const handleLogin = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)

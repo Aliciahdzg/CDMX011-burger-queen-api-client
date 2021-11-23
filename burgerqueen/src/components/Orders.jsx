@@ -13,10 +13,18 @@ import Lunch from './Lunch';
 import Resum from './Resum';
 import { helpHttp } from '../helpers/helpHttp';
 
+<<<<<<< HEAD
 const Orders = () => {
   const [breakfastMenu, setBreakfastMenu] = useState([]);
   const [lunchMenu, setLunchMenu] = useState([]);
   const [client, setClient] = useState('');
+=======
+function Orders() {
+  const [breakfastMenu, setBreakfastMenu] = useState([]);
+  const [lunchMenu, setLunchMenu] = useState([]);
+  // eslint-disable-next-line no-unused-vars
+  const [orders, setOrders] = useState([]);
+>>>>>>> 9c0abc7 (instalacion de json-server, creacion de los metodos get, put, delet, post, end points con la data)
   const [resumItems, setResumItems] = useState([]);
   const [activeMenu, setActiveMenu] = useState('breakfast');
   const [currentUser, setCurrentUser] = useState({});
@@ -27,6 +35,7 @@ const Orders = () => {
   const navigate = useNavigate();
 
   const api = helpHttp();
+<<<<<<< HEAD
 
   const urlB = 'http://localhost:5000/breakfastMenu';
   const urlL = 'http://localhost:5000/lunchMenu';
@@ -35,6 +44,11 @@ const Orders = () => {
   useEffect(() => {
     localStorage.setItem('orderList', JSON.stringify(resumItems));
   }, [resumItems]);
+=======
+  const urlL = 'http://localhost:5000/lunchMenu';
+  const urlB = 'http://localhost:5000/breakfastMenu';
+  const urlO = 'http://localhost:5000/orders';
+>>>>>>> 9c0abc7 (instalacion de json-server, creacion de los metodos get, put, delet, post, end points con la data)
 
   useEffect(() => {
     api.get(urlB).then((res) => {
@@ -54,6 +68,7 @@ const Orders = () => {
     });
   }, [urlB, urlL]);
 
+<<<<<<< HEAD
   const order = {
     client,
     status: 'pending',
@@ -62,6 +77,21 @@ const Orders = () => {
       date: today.toLocaleDateString(),
       time: time.toLocaleTimeString()
     }
+=======
+  // eslint-disable-next-line no-unused-vars
+  const createOrder = (data) => {
+    const options = {
+      body: data,
+      headers: { 'content-type': 'application/json' }
+    };
+    api.post(urlO, options).then((res) => {
+      if (!res.err) {
+        setOrders(res);
+      } else {
+        setOrders(res.err);
+      }
+    });
+>>>>>>> 9c0abc7 (instalacion de json-server, creacion de los metodos get, put, delet, post, end points con la data)
   };
 
   const addItem = (item) => {
@@ -129,12 +159,16 @@ const Orders = () => {
           <Resum
             removeAll={removeAll}
             resumItems={resumItems}
+<<<<<<< HEAD
             setResumItems={setResumItems}
             client={client}
             setClient={setClient}
             order={order}
             api={api}
             urlK={urlK}
+=======
+            createOrder={createOrder}
+>>>>>>> 9c0abc7 (instalacion de json-server, creacion de los metodos get, put, delet, post, end points con la data)
           />
         </div>
         <div className="menu">
@@ -178,5 +212,5 @@ const Orders = () => {
       </div>
     </div>
   );
-};
+}
 export default Orders;

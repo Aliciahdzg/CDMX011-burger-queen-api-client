@@ -2,18 +2,14 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { render, screen, fireEvent, cleanup } from '@testing-library/react';
-import Login from '../components/Login';
+import FormLogin from '../components/FormLogin';
 
 afterEach(cleanup);
-const mockHandleLogin = jest.fn();
-
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useNavigate: () => mockHandleLogin
-}));
 
 test('User login', () => {
-  render(<Login handleLogin={mockHandleLogin} />);
+  const mockHandleLogin = jest.fn();
+
+  render(<FormLogin handleLogin={mockHandleLogin} />);
   const contentEmail = screen.getByPlaceholderText('Correo electrónico');
   const contentPassword = screen.getByPlaceholderText('Contraseña');
   const buttonLogin = screen.getByText('Iniciar Sesión');

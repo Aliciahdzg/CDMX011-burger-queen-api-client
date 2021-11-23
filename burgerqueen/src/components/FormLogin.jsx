@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
+<<<<<<< HEAD
 import './styles/Login.scss';
+=======
+>>>>>>> 9c0abc7 (instalacion de json-server, creacion de los metodos get, put, delet, post, end points con la data)
 
 const FormLogin = ({ handleLogin, error }) => {
   const [email, setEmail] = useState('');

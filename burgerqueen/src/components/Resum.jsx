@@ -6,6 +6,7 @@ import { Icon } from '@iconify/react';
 import React, { useState, useEffect } from 'react';
 
 const Resum = (props) => {
+<<<<<<< HEAD
   const {
     resumItems,
     setResumItems,
@@ -16,6 +17,9 @@ const Resum = (props) => {
     urlK,
     order
   } = props;
+=======
+  const { resumItems, removeAll, createOrder } = props;
+>>>>>>> 9c0abc7 (instalacion de json-server, creacion de los metodos get, put, delet, post, end points con la data)
   const [total, setTotal] = useState(0);
   // const [inputValue, setInputValue] = useState('');
 
@@ -101,6 +105,7 @@ const Resum = (props) => {
               <span>Total:</span> $ {total} .00
             </p>
           )}
+<<<<<<< HEAD
           <button
             type="button"
             onClick={() => {
@@ -108,6 +113,9 @@ const Resum = (props) => {
               //  resetInputField();
             }}
           >
+=======
+          <button type="button" onClick={() => createOrder()}>
+>>>>>>> 9c0abc7 (instalacion de json-server, creacion de los metodos get, put, delet, post, end points con la data)
             Enviar
           </button>
         </div>
