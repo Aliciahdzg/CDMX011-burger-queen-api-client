@@ -17,3 +17,25 @@ const data = {
   ]
 };
 export default data;
+
+// {
+//   "orders":
+//   [
+//     {
+//       "client": "alicia",
+//        "status":"pending",
+//       "order": {
+//         "items": [{"alimento":"hamburguesa", "qty":2},{"alimento":"papas", "qty":5}],
+//         "date": "11/12/2021",
+//         "time": "12:01:45"
+//       }},
+//       {
+//         "client": "dani",
+//          "status":"pending",
+//         "order": {
+//           "items": [{"alimento":"hamburguesa", "qty":2},{"alimento":"papas", "qty":5}],
+//           "date": "11/12/2021",
+//           "time": "12:01:45"
+//         }},
+//     ]
+//   };

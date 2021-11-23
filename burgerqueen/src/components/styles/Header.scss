@@ -1,0 +1,31 @@
+@import './Variables.scss';
+
+.header{
+    background-color: $cream2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.current-user{
+    display: flex;
+    flex-direction: row;
+    width:80%;
+    margin:1vmin 1vmin 1vmin 3vmin;
+    p{
+        margin-left:2vmin;
+    }
+}
+.current-time{
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    justify-content: center;
+    p{
+        margin:.5vmin;
+        text-align: center;
+    }
+}
+.logout{
+    width:10%;
+    cursor:pointer;
+}
