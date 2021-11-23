@@ -18,7 +18,6 @@ const data = {
 };
 export default data;
 
-<<<<<<< HEAD
 // {
 //   "orders":
 //   [
@@ -40,13 +39,3 @@ export default data;
 //         }},
 //     ]
 //   };
-=======
-/* { 
-  'orders': [
-    {
-      'client name': 'Alice', 
-      'order': [{},{},{}],
-    }
-  ]
-} */
->>>>>>> 9c0abc7 (instalacion de json-server, creacion de los metodos get, put, delet, post, end points con la data)

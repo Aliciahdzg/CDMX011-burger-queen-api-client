@@ -29,8 +29,8 @@ const Resum = (props) => {
   }, [resumItems]);
 
   const resetInputField = () => {
-     setClient('');
-   };
+    setClient('');
+  };
 
   const postOrder = () => {
     const options = {
@@ -59,7 +59,7 @@ const Resum = (props) => {
           className="client-name"
           autoFocus
           placeholder="Nombre de cliente"
-          value={inputValue}
+          value={client}
           onChange={(e) => setClient(e.target.value)}
         />
       </div>
