@@ -1,16 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import './styles/Orders.scss';
 import './styles/Menu.scss';
+import './styles/Header.scss';
 import React, { useState, useEffect } from 'react';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { helpHttp } from '../helpers/helpHttp';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import Logo from '../assets/upper-icon.png';
 import auth from '../firebase/firebaseConfig';
 import Breackfast from './Breackfast';
 import Header from './Header';
 import Lunch from './Lunch';
 import Resum from './Resum';
+import { helpHttp } from '../helpers/helpHttp';
 
 const Orders = () => {
   const [breakfastMenu, setBreakfastMenu] = useState([]);
@@ -108,6 +109,7 @@ const Orders = () => {
         navigate('/');
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.log(error);
       });
   };

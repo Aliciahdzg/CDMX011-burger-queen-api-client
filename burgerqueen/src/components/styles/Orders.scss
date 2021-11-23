@@ -1,7 +1,6 @@
 @import './Variables.scss';
 
-
-.orders-content{
+.orders-content {
   background-image: url(../../assets/black-background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -10,22 +9,21 @@
   display: flex;
   flex-direction: column;
 }
-.div-resum-menu{
-    display: flex;
-    flex-direction: row;
-
+.div-resum-menu {
+  display: flex;
+  flex-direction: row;
 }
-.div-logo-orders{
-    width: 100%;
+.div-logo-orders {
+  width: 100%;
 }
-.logo-orders-img{
-    width: 10vmin;
-    float: left;
-    padding-right:4vmin;
+.logo-orders-img {
+  width: 10vmin;
+  float: left;
+  padding-right: 4vmin;
 }
-.resum{
-    width:50%;
+.resum {
+  width: 50%;
 }
-.menu{
-    width:50%;
+.menu {
+  width: 50%;
 }

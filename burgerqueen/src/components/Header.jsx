@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/prop-types */
-import './styles/Header.scss';
 import React, { useEffect } from 'react';
 import { Icon } from '@iconify/react';
+import './styles/Header.scss';
 
 const Header = (props) => {
   const { currentUser, handleLogout, setDate, setTime, today, time } = props;
@@ -29,11 +31,13 @@ const Header = (props) => {
         <p> {time.toLocaleTimeString()}</p>
       </div>
       <Icon
+        onClick={() => {
+          handleLogout();
+        }}
         className="logout"
         icon="ic:twotone-logout"
         color="#f2884b"
         height="40"
-        onClick={() => handleLogout()}
       />
     </div>
   );

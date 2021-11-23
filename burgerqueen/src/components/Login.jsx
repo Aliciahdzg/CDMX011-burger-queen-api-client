@@ -1,8 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-shadow */
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import auth from '../firebase/firebaseConfig';
 import Logo from '../assets/logo.png';
 import FormLogin from './FormLogin';
@@ -10,16 +11,18 @@ import './styles/Login.scss';
 
 const Login = () => {
   const [error, setError] = useState('');
+
   const navigate = useNavigate();
 
-  const handleLogin = async (email, password) => {
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate('orders');
-    } catch (error) {
-      setError('Contraseña y/o correo inválidos');
-      setTimeout(() => setError(''), 2500);
-    }
+  const handleLogin = (email, password) => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        navigate('orders');
+      })
+      .catch(() => {
+        setError('Contraseña y/o correo inválidos');
+        setTimeout(() => setError(''), 2500);
+      });
   };
 
   return (

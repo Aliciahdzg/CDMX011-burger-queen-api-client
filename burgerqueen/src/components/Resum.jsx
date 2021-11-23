@@ -49,7 +49,8 @@ const Resum = (props) => {
           console.log(res.statusText);
         }
       })
-      .then(setResumItems([]));
+      .then(setResumItems([]))
+      .then(setClient(''));
   };
 
   return (
@@ -97,7 +98,6 @@ const Resum = (props) => {
             </p>
           ) : (
             <p>
-              {' '}
               <span>Total:</span> $ {total} .00
             </p>
           )}
