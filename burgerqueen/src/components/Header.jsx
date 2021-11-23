@@ -1,12 +1,10 @@
 /* eslint-disable react/prop-types */
 import './styles/Header.scss';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Icon } from '@iconify/react';
 
 const Header = (props) => {
-  const { currentUser, handleLogout } = props;
-  const [today, setDate] = useState(new Date());
-  const [time, setTime] = useState(new Date());
+  const { currentUser, handleLogout, setDate, setTime, today, time } = props;
 
   useEffect(() => {
     const timer = setInterval(() => {

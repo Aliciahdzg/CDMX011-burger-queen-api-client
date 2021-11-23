@@ -23,6 +23,7 @@ export default data;
 //   [
 //     {
 //       "client": "alicia",
+//        "status":"pending",
 //       "order": {
 //         "items": [{"alimento":"hamburguesa", "qty":2},{"alimento":"papas", "qty":5}],
 //         "date": "11/12/2021",
@@ -30,6 +31,7 @@ export default data;
 //       }},
 //       {
 //         "client": "dani",
+//          "status":"pending",
 //         "order": {
 //           "items": [{"alimento":"hamburguesa", "qty":2},{"alimento":"papas", "qty":5}],
 //           "date": "11/12/2021",

@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/no-autofocus */
 /* eslint-disable react/prop-types */
 import './styles/Resum.scss';
@@ -5,8 +6,18 @@ import { Icon } from '@iconify/react';
 import React, { useState, useEffect } from 'react';
 
 const Resum = (props) => {
-  const { resumItems, removeAll } = props;
+  const {
+    resumItems,
+    setResumItems,
+    removeAll,
+    client,
+    setClient,
+    api,
+    urlK,
+    order
+  } = props;
   const [total, setTotal] = useState(0);
+  // const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
     if (resumItems.length === 0) {
@@ -18,6 +29,29 @@ const Resum = (props) => {
     return setTotal(prices.reduce(reducer));
   }, [resumItems]);
 
+  // const resetInputField = () => {
+  //   setInputValue('');
+  // };
+
+  const postOrder = () => {
+    const options = {
+      body: order,
+      headers: { 'Content-Type': 'application/json' }
+    };
+    if (!client) {
+      alert('Nombre del cliente es requerido');
+      return;
+    }
+    api
+      .post(urlK, options)
+      .then((res) => {
+        if (res.err) {
+          console.log(res.statusText);
+        }
+      })
+      .then(setResumItems([]));
+  };
+
   return (
     <div className="resum-content">
       <div className="div-client-name">
@@ -25,6 +59,8 @@ const Resum = (props) => {
           className="client-name"
           autoFocus
           placeholder="Nombre de cliente"
+          // value={inputValue}
+          onChange={(e) => setClient(e.target.value)}
         />
       </div>
 
@@ -65,7 +101,15 @@ const Resum = (props) => {
               <span>Total:</span> $ {total} .00
             </p>
           )}
-          <button type="button">Enviar</button>
+          <button
+            type="button"
+            onClick={() => {
+              postOrder();
+              //  resetInputField();
+            }}
+          >
+            Enviar
+          </button>
         </div>
       </div>
     </div>

@@ -1,22 +1,67 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './styles/Orders.scss';
 import './styles/Menu.scss';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { helpHttp } from '../helpers/helpHttp';
 import Logo from '../assets/upper-icon.png';
 import auth from '../firebase/firebaseConfig';
 import Breackfast from './Breackfast';
 import Header from './Header';
 import Lunch from './Lunch';
 import Resum from './Resum';
-import data from '../data';
 
 const Orders = () => {
-  const { breakfastMenu, lunchMenu } = data;
+  const [breakfastMenu, setBreakfastMenu] = useState([]);
+  const [lunchMenu, setLunchMenu] = useState([]);
+  const [client, setClient] = useState('');
   const [resumItems, setResumItems] = useState([]);
   const [activeMenu, setActiveMenu] = useState('breakfast');
   const [currentUser, setCurrentUser] = useState({});
+
+  const [today, setDate] = useState(new Date());
+  const [time, setTime] = useState(new Date());
+
   const navigate = useNavigate();
+
+  const api = helpHttp();
+
+  const urlB = 'http://localhost:5000/breakfastMenu';
+  const urlL = 'http://localhost:5000/lunchMenu';
+  const urlK = 'http://localhost:5000/kitchen';
+
+  useEffect(() => {
+    localStorage.setItem('orderList', JSON.stringify(resumItems));
+  }, [resumItems]);
+
+  useEffect(() => {
+    api.get(urlB).then((res) => {
+      if (!res.err) {
+        setBreakfastMenu(res);
+      } else {
+        setBreakfastMenu(null);
+      }
+    });
+
+    api.get(urlL).then((res) => {
+      if (!res.err) {
+        setLunchMenu(res);
+      } else {
+        setLunchMenu(null);
+      }
+    });
+  }, [urlB, urlL]);
+
+  const order = {
+    client,
+    status: 'pending',
+    order: {
+      items: resumItems,
+      date: today.toLocaleDateString(),
+      time: time.toLocaleTimeString()
+    }
+  };
 
   const addItem = (item) => {
     const exist = resumItems.find((x) => x.id === item.id);
@@ -69,10 +114,26 @@ const Orders = () => {
 
   return (
     <div className="orders-content">
-      <Header currentUser={currentUser} handleLogout={handleLogout} />
+      <Header
+        currentUser={currentUser}
+        handleLogout={handleLogout}
+        today={today}
+        setDate={setDate}
+        time={time}
+        setTime={setTime}
+      />
       <div className="div-resum-menu">
         <div className="resum">
-          <Resum removeAll={removeAll} resumItems={resumItems} />
+          <Resum
+            removeAll={removeAll}
+            resumItems={resumItems}
+            setResumItems={setResumItems}
+            client={client}
+            setClient={setClient}
+            order={order}
+            api={api}
+            urlK={urlK}
+          />
         </div>
         <div className="menu">
           <div className="menu-options">
