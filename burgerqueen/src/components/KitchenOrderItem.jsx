@@ -7,11 +7,9 @@ const KitchenOrderItem = (props) => {
     <div>
       <div>{order.client}</div>
       <ul>
-        <li>
-          {order.order.items.map((item) => (
-            <li> {item.name} </li>
-          ))}
-        </li>
+        {order.order.items.map((item) => (
+          <li> {item.name} </li>
+        ))}
       </ul>
     </div>
   );

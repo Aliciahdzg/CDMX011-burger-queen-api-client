@@ -15,7 +15,11 @@ const Login = () => {
   const handleLogin = async (email, password) => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate('orders');
+      if (email === 'meseros@burgerqueen.com') {
+        navigate('orders');
+      } else if (email === 'cocina@bugerqueen.com') {
+        navigate('kitchen');
+      }
     } catch (error) {
       setError('Contraseña y/o correo inválidos');
       setTimeout(() => setError(''), 2500);
