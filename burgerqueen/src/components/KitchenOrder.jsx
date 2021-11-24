@@ -13,7 +13,7 @@ const KitchenOrder = (props) => {
             key={order.id}
             order={order}
             client={order.client}
-            items={order.order.items.name}
+            items={order.order.items}
             date={order.date}
             time={order.time}
           />
