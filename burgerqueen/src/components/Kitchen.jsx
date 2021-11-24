@@ -6,6 +6,7 @@ import auth from '../firebase/firebaseConfig';
 import { helpHttp } from '../helpers/helpHttp';
 import KitchenOrder from './KitchenOrder';
 import Header from './Header';
+import './styles/Kitchen.scss';
 
 const Kitchen = () => {
   const [kitchenOrder, setKitchenOrder] = useState([]);
@@ -45,7 +46,7 @@ const Kitchen = () => {
   };
 
   return (
-    <div className="Kitchen-content">
+    <div className="kitchen-content">
       <Header
         currentUser={currentUser}
         handleLogout={handleLogout}
@@ -55,7 +56,7 @@ const Kitchen = () => {
         setTime={setTime}
       />
       <div>
-        <h1>Kitchen orders</h1>
+        <h1>Órdenes en cocina</h1>
       </div>
       <div>
         <KitchenOrder

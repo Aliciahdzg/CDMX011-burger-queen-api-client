@@ -6,7 +6,6 @@ const KitchenOrder = (props) => {
   const { kitchenOrder } = props;
   return (
     <div>
-      <div>Estas son las ordenes</div>
       <div>
         {kitchenOrder.map((order) => (
           <KitchenOrderItem key={order.id} order={order} />
