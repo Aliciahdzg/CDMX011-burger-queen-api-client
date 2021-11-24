@@ -17,7 +17,6 @@ const Resum = (props) => {
     order
   } = props;
   const [total, setTotal] = useState(0);
-  // const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
     if (resumItems.length === 0) {
@@ -29,9 +28,9 @@ const Resum = (props) => {
     return setTotal(prices.reduce(reducer));
   }, [resumItems]);
 
-  // const resetInputField = () => {
-  //   setInputValue('');
-  // };
+  const resetInputField = () => {
+    setClient('');
+  };
 
   const postOrder = () => {
     const options = {
@@ -42,14 +41,18 @@ const Resum = (props) => {
       alert('Nombre del cliente es requerido');
       return;
     }
-    api
-      .post(urlK, options)
-      .then((res) => {
-        if (res.err) {
-          console.log(res.statusText);
-        }
-      })
-      .then(setResumItems([]));
+    const r = window.confirm('¿Enviar orden?');
+    if (r) {
+      api
+        .post(urlK, options)
+        .then((res) => {
+          if (res.err) {
+            console.log(res.statusText);
+          }
+        })
+        .then(setResumItems([]))
+        .then(resetInputField());
+    }
   };
 
   return (
@@ -59,7 +62,7 @@ const Resum = (props) => {
           className="client-name"
           autoFocus
           placeholder="Nombre de cliente"
-          // value={inputValue}
+          value={client}
           onChange={(e) => setClient(e.target.value)}
         />
       </div>
