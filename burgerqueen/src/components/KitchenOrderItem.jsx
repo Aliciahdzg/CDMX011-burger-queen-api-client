@@ -6,17 +6,18 @@ const KitchenOrderItem = (props) => {
   return (
     <div className="order-container">
       <h3>{order.client}</h3>
-      <ul>
+      <div className="items-container">
         {order.order.items.map((item) => (
-          <>
+          <ul>
             <li key={item.id}>{item.name}</li>
             <li>{item.qty}</li>
-          </>
+          </ul>
         ))}
-      </ul>
-      <div>
+      </div>
+
+      <div className="order-btns">
         <p>cronometro</p>
-        <button type="button" className="order-ready">
+        <button type="button" className="order-ready-btn">
           Listo
         </button>
       </div>
