@@ -6,6 +6,7 @@ import auth from '../firebase/firebaseConfig';
 import { helpHttp } from '../helpers/helpHttp';
 import KitchenOrder from './KitchenOrder';
 import Header from './Header';
+import Logo from '../assets/upper-icon.png';
 import './styles/Kitchen.scss';
 
 const Kitchen = () => {
@@ -55,14 +56,12 @@ const Kitchen = () => {
         time={time}
         setTime={setTime}
       />
-      <div>
+      <div className="kitchen-titles">
+        <img src={Logo} alt="Logo" className="logo-kitchen" />
         <h1>Órdenes en cocina</h1>
       </div>
       <div>
-        <KitchenOrder
-          kitchenOrder={kitchenOrder}
-          setKitchenOrder={setKitchenOrder}
-        />
+        <KitchenOrder kitchenOrder={kitchenOrder} />
         <div />
       </div>
     </div>

@@ -112,7 +112,6 @@ const Orders = () => {
         console.log(error);
       });
   };
-  console.log(currentUser);
 
   return (
     <div className="orders-content">
