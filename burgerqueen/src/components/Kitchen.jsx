@@ -7,6 +7,7 @@ import { helpHttp } from '../helpers/helpHttp';
 import KitchenOrder from './KitchenOrder';
 import Header from './Header';
 import './styles/Kitchen.scss';
+import Logo from '../assets/upper-icon.png';
 
 const Kitchen = () => {
   const [kitchenOrder, setKitchenOrder] = useState([]);
@@ -58,12 +59,15 @@ const Kitchen = () => {
       <div>
         <h1>Órdenes en cocina</h1>
       </div>
-      <div>
+      <div className="container-list">
         <KitchenOrder
           kitchenOrder={kitchenOrder}
           setKitchenOrder={setKitchenOrder}
         />
         <div />
+      </div>
+      <div className="div-logo-orders">
+        <img src={Logo} alt="Logo" className="logo-orders-img" />
       </div>
     </div>
   );

@@ -1,11 +1,89 @@
 @import './Variables.scss';
 
 .kitchen-content {
-  // background-image: url(../../assets/black-background.jpg);
+  background-image: url(../../assets/black-background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
   height: 100vmin;
   display: flex;
   flex-direction: column;
+
+  h1 {
+    color: $orange;
+    font-family: $titulos;
+    margin-left: 4vmin;
+  }
+}
+
+.order-container {
+  margin: 2vmin;
+  //padding: 1vmin;
+  width: 30vmin;
+  height: 40vmin;
+  background-color: $cream;
+  border-radius: 10px 10px 10px 10px;
+
+  h3 {
+    font-family: $titulos;
+    background-color: $yellowblur;
+    border-radius: 10px 10px 0px 0px;
+    padding-left: 1vmin;
+    margin: 0;
+    height: 7vmin;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0.5vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 50%;
+
+    li {
+      font-family: $body;
+      font-size: 2vmin;
+      margin: 0.5vmin;
+    }
+  }
+}
+
+.lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.time-btn {
+  background-color: $yellowblur;
+  border-radius: 0px 0px 10px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 7.5vmin;
+  //padding: 1vmin;
+
+  p {
+    margin: 0;
+    padding: 1vmin;
+  }
+  button {
+    height: 4vmin;
+    width: 9vmin;
+    margin-right: 2.5vmin;
+    background-color: $orange;
+    font-family: $body;
+    border-radius: 10px;
+    border-color: $orange;
+  }
+}
+
+@media (orientation: portrait) {
+  .kitchen-content {
+    background-image: url(../../assets/black-background.jpg);
+    background-size: cover;
+    height: 134vmin;
+  }
 }

@@ -108,7 +108,6 @@ const Resum = (props) => {
             type="button"
             onClick={() => {
               postOrder();
-              //  resetInputField();
             }}
           >
             Enviar

@@ -5,12 +5,10 @@ import KitchenOrderItem from './KitchenOrderItem';
 const KitchenOrder = (props) => {
   const { kitchenOrder } = props;
   return (
-    <div>
-      <div>
-        {kitchenOrder.map((order) => (
-          <KitchenOrderItem key={order.id} order={order} />
-        ))}
-      </div>
+    <div className="lista">
+      {kitchenOrder.map((order) => (
+        <KitchenOrderItem key={order.id} order={order} />
+      ))}
     </div>
   );
 };

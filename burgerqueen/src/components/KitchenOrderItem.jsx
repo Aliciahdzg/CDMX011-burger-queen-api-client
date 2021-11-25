@@ -14,7 +14,7 @@ const KitchenOrderItem = (props) => {
           </>
         ))}
       </ul>
-      <div>
+      <div className="time-btn">
         <p>cronometro</p>
         <button type="button" className="order-ready">
           Listo
