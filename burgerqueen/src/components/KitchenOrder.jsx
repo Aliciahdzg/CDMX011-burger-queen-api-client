@@ -6,17 +6,9 @@ const KitchenOrder = (props) => {
   const { kitchenOrder } = props;
   return (
     <div>
-      <div>Estas son las ordenes</div>
       <div>
         {kitchenOrder.map((order) => (
-          <KitchenOrderItem
-            key={order.id}
-            order={order}
-            client={order.client}
-            items={order.order.items}
-            date={order.date}
-            time={order.time}
-          />
+          <KitchenOrderItem key={order.id} order={order} />
         ))}
       </div>
     </div>

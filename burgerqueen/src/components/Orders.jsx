@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
 import './styles/Orders.scss';
 import './styles/Menu.scss';
 import React, { useState, useEffect } from 'react';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { helpHttp } from '../helpers/helpHttp';
 import Logo from '../assets/upper-icon.png';
@@ -16,9 +17,9 @@ const Orders = () => {
   const [breakfastMenu, setBreakfastMenu] = useState([]);
   const [lunchMenu, setLunchMenu] = useState([]);
   const [client, setClient] = useState('');
+  const [currentUser, setCurrentUser] = useState({});
   const [resumItems, setResumItems] = useState([]);
   const [activeMenu, setActiveMenu] = useState('breakfast');
-  const [currentUser, setCurrentUser] = useState({});
 
   const [today, setDate] = useState(new Date());
   const [time, setTime] = useState(new Date());
@@ -34,6 +35,12 @@ const Orders = () => {
   useEffect(() => {
     localStorage.setItem('orderList', JSON.stringify(resumItems));
   }, [resumItems]);
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setCurrentUser(user);
+    }
+  });
 
   useEffect(() => {
     api.get(urlB).then((res) => {
@@ -96,12 +103,6 @@ const Orders = () => {
     setResumItems(select);
   };
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setCurrentUser(user);
-    }
-  });
-
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
@@ -111,6 +112,7 @@ const Orders = () => {
         console.log(error);
       });
   };
+  console.log(currentUser);
 
   return (
     <div className="orders-content">

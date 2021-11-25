@@ -22,7 +22,12 @@ const Header = (props) => {
   return (
     <div className="header">
       <div className="current-user">
-        <Icon icon="vs:user-waiter" color="#f2884b" height="40" />
+        {currentUser.email === 'meseros@burgerqueen.com' && (
+          <Icon icon="vs:user-waiter" color="#f2884b" height="40" />
+        )}
+        {currentUser.email === 'cocina@burgerqueen.com' && (
+          <Icon icon="icon-park-outline:chef-hat" color="#f2884b" height="40" />
+        )}
         <p>{currentUser.email}</p>
       </div>
       <div className="current-time">

@@ -1,14 +1,29 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
-// import Header from './Header';
+import { signOut, onAuthStateChanged } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import auth from '../firebase/firebaseConfig';
 import { helpHttp } from '../helpers/helpHttp';
 import KitchenOrder from './KitchenOrder';
+import Header from './Header';
+import './styles/Kitchen.scss';
 
 const Kitchen = () => {
+  const [kitchenOrder, setKitchenOrder] = useState([]);
+  const [currentUser, setCurrentUser] = useState({});
+  const [today, setDate] = useState(new Date());
+  const [time, setTime] = useState(new Date());
+
+  const navigate = useNavigate();
+
   const api = helpHttp();
   const urlK = 'http://localhost:5000/kitchen';
 
-  const [kitchenOrder, setKitchenOrder] = useState([]);
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setCurrentUser(user);
+    }
+  });
 
   useEffect(() => {
     api.get(urlK).then((res) => {
@@ -20,10 +35,28 @@ const Kitchen = () => {
     });
   }, []);
 
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        navigate('/');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
-    <div className="Kitchen-content">
+    <div className="kitchen-content">
+      <Header
+        currentUser={currentUser}
+        handleLogout={handleLogout}
+        today={today}
+        setDate={setDate}
+        time={time}
+        setTime={setTime}
+      />
       <div>
-        <h1>Kitchen orders</h1>
+        <h1>Órdenes en cocina</h1>
       </div>
       <div>
         <KitchenOrder

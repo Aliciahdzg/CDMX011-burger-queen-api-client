@@ -4,15 +4,22 @@ import React from 'react';
 const KitchenOrderItem = (props) => {
   const { order } = props;
   return (
-    <div>
-      <div>{order.client}</div>
+    <div className="order-container">
+      <h3>{order.client}</h3>
       <ul>
-        <li>
-          {order.order.items.map((item) => (
-            <li> {item.name} </li>
-          ))}
-        </li>
+        {order.order.items.map((item) => (
+          <>
+            <li key={item.id}>{item.name}</li>
+            <li>{item.qty}</li>
+          </>
+        ))}
       </ul>
+      <div>
+        <p>cronometro</p>
+        <button type="button" className="order-ready">
+          Listo
+        </button>
+      </div>
     </div>
   );
 };
