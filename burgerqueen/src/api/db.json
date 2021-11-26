@@ -65,8 +65,8 @@
   ],
   "kitchen": [
     {
-      "client": "alicia",
-      "status": "pending",
+      "client": "test",
+      "status": "done",
       "order": {
         "items": [
           {
@@ -76,78 +76,82 @@
             "qty": 1
           }
         ],
-        "date": "23/11/2021",
-        "time": "12:25:30"
+        "date": "26/11/2021",
+        "time": "11:12:05"
       },
       "id": 1
     },
     {
-      "client": "Dan",
-      "status": "pending",
+      "client": "test 1",
+      "status": "done",
       "order": {
         "items": [
-          {
-            "id": 5,
-            "name": "Hamburguesa simple",
-            "price": 10,
-            "qty": 1
-          },
-          {
-            "id": 6,
-            "name": "Hamburguesa doble",
-            "price": 15,
-            "qty": 1
-          },
-          {
-            "id": 9,
-            "name": "Agua 500ml",
-            "price": 5,
-            "qty": 1
-          }
-        ],
-        "date": "23/11/2021",
-        "time": "17:25:07"
-      },
-      "id": 2
-    },
-    {
-      "client": "Lili",
-      "status": "pending",
-      "order": {
-        "items": [
-          {
-            "id": 1,
-            "name": "Café americano",
-            "price": 5,
-            "qty": 1
-          },
           {
             "id": 2,
             "name": "café con leche",
             "price": 7,
             "qty": 1
-          },
+          }
+        ],
+        "date": "26/11/2021",
+        "time": "11:19:28"
+      },
+      "id": 2
+    },
+    {
+      "client": "test 2",
+      "status": "done",
+      "order": {
+        "items": [
+          {
+            "id": 3,
+            "name": "Sandwich de jamón y queso",
+            "price": 10,
+            "qty": 2
+          }
+        ],
+        "date": "26/11/2021",
+        "time": "11:19:34"
+      },
+      "id": 3
+    },
+    {
+      "client": "ggg",
+      "status": "done",
+      "order": {
+        "items": [
           {
             "id": 3,
             "name": "Sandwich de jamón y queso",
             "price": 10,
             "qty": 1
-          },
-          {
-            "id": 4,
-            "name": "Jugo de frutas natural",
-            "price": 7,
-            "qty": 1
           }
         ],
-        "date": "24/11/2021",
-        "time": "09:40:40"
+        "date": "26/11/2021",
+        "time": "11:22:58"
       },
-      "id": 3
+      "id": 4
     },
     {
-      "client": "ALICIAA",
+      "client": "hola",
       "status": "pending",
+      "order": {
+        "items": [
+          {
+            "id": 2,
+            "name": "café con leche",
+            "price": 7,
+            "qty": 2
+          }
+        ],
+        "date": "26/11/2021",
+        "time": "11:23:37"
+      },
+      "id": 5
+    },
+    {
+      "client": "test 99",
+      "status": "done",
       "order": {
         "items": [
           {
@@ -155,18 +159,29 @@
             "name": "Café americano",
             "price": 5,
             "qty": 1
-          },
+          }
+        ],
+        "date": "26/11/2021",
+        "time": "11:54:49"
+      },
+      "id": 6
+    },
+    {
+      "client": "ok otro mas",
+      "status": "done",
+      "order": {
+        "items": [
           {
             "id": 3,
             "name": "Sandwich de jamón y queso",
             "price": 10,
-            "qty": 1
+            "qty": 2
           }
         ],
-        "date": "24/11/2021",
-        "time": "10:16:45"
+        "date": "26/11/2021",
+        "time": "11:54:56"
       },
-      "id": 4
+      "id": 7
     },
     {
       "client": "test",
@@ -177,25 +192,13 @@
             "id": 1,
             "name": "Café americano",
             "price": 5,
-            "qty": 1
-          },
-          {
-            "id": 2,
-            "name": "café con leche",
-            "price": 7,
-            "qty": 1
-          },
-          {
-            "id": 8,
-            "name": "Aros de cebolla",
-            "price": 5,
-            "qty": 1
+            "qty": 3
           }
         ],
-        "date": "24/11/2021",
-        "time": "21:06:07"
+        "date": "26/11/2021",
+        "time": "14:06:34"
       },
-      "id": 5
+      "id": 8
     }
   ]
 }

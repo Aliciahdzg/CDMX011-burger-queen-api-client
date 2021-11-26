@@ -2,14 +2,14 @@
 import React from 'react';
 
 const KitchenOrderItem = (props) => {
-  const { order } = props;
+  const { order, updateData, removeOrder } = props;
   return (
     <div className="order-container">
       <h3>{order.client}</h3>
       <div className="items-container">
         {order.order.items.map((item) => (
-          <ul>
-            <li key={item.id}>{item.name}</li>
+          <ul key={item.id}>
+            <li>{item.name}</li>
             <li>{item.qty}</li>
           </ul>
         ))}
@@ -17,7 +17,14 @@ const KitchenOrderItem = (props) => {
 
       <div className="order-btns">
         <p>cronometro</p>
-        <button type="button" className="order-ready-btn">
+        <button
+          type="button"
+          onClick={() => {
+            updateData(order);
+            removeOrder(order);
+          }}
+          className="order-ready-btn"
+        >
           Listo
         </button>
       </div>
