@@ -2,7 +2,7 @@
 import React from 'react';
 
 const KitchenOrderItem = (props) => {
-  const { order } = props;
+  const { order, updateData, removeOrder, timer, setTimerOff } = props;
   return (
     <div className="order-container">
       <h3>{order.client}</h3>
@@ -16,8 +16,21 @@ const KitchenOrderItem = (props) => {
       </div>
 
       <div className="order-btns">
-        <p>cronometro</p>
-        <button type="button" className="order-ready-btn">
+        <div>
+          <span>{`0${Math.floor(timer / 600000) % 60}:`.slice(-2)}</span>
+          <span>{`0${Math.floor(timer / 60000) % 60}:`.slice(-2)}</span>
+          <span>{`0${Math.floor(timer / 1000) % 60}:`.slice(-2)}</span>
+          <span>{`0${(timer / 10) % 100}`.slice(-2)}</span>
+        </div>
+        <button
+          type="button"
+          className="order-ready-btn"
+          onClick={() => {
+            updateData(order);
+            removeOrder(order);
+            setTimerOff(false);
+          }}
+        >
           Listo
         </button>
       </div>

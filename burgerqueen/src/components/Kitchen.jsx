@@ -14,6 +14,9 @@ const Kitchen = () => {
   const [currentUser, setCurrentUser] = useState({});
   const [today, setDate] = useState(new Date());
   const [time, setTime] = useState(new Date());
+  // eslint-disable-next-line no-unused-vars
+  const [timer, setTimer] = useState(0);
+  const [timerOff, setTimerOff] = useState(true);
 
   const navigate = useNavigate();
 
@@ -27,7 +30,8 @@ const Kitchen = () => {
   });
 
   useEffect(() => {
-    api.get(urlK).then((res) => {
+    const endpoint = `${urlK}?status=pending`;
+    api.get(endpoint).then((res) => {
       if (!res.err) {
         setKitchenOrder(res);
       } else {
@@ -35,6 +39,19 @@ const Kitchen = () => {
       }
     });
   }, []);
+
+  const updateData = (data) => {
+    const endpoint = `${urlK}/${data.id}`;
+    const options = {
+      body: { status: 'done' },
+      headers: { 'Content-Type': 'application/json' }
+    };
+    api.patch(endpoint, options).then((res) => {
+      if (res.err) {
+        console.log(res.statusText);
+      }
+    });
+  };
 
   const handleLogout = () => {
     signOut(auth)
@@ -45,6 +62,25 @@ const Kitchen = () => {
         console.log(error);
       });
   };
+
+  const removeOrder = (item) => {
+    const select = kitchenOrder.filter((x) => x.id !== item.id);
+    setKitchenOrder(select);
+  };
+
+  useEffect(() => {
+    let interval = null;
+
+    if (timerOff) {
+      interval = setInterval(() => {
+        setTimer((prevTime) => prevTime + 10);
+      }, 10);
+    } else {
+      clearInterval(interval);
+    }
+
+    return () => clearInterval(interval);
+  }, [timerOff]);
 
   return (
     <div className="kitchen-content">
@@ -61,7 +97,13 @@ const Kitchen = () => {
         <h1>Órdenes en cocina</h1>
       </div>
       <div>
-        <KitchenOrder kitchenOrder={kitchenOrder} />
+        <KitchenOrder
+          kitchenOrder={kitchenOrder}
+          updateData={updateData}
+          removeOrder={removeOrder}
+          timer={timer}
+          setTimerOff={setTimerOff}
+        />
         <div />
       </div>
     </div>

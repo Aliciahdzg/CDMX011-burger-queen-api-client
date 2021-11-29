@@ -65,89 +65,8 @@
   ],
   "kitchen": [
     {
-      "client": "alicia",
-      "status": "pending",
-      "order": {
-        "items": [
-          {
-            "id": 1,
-            "name": "Café americano",
-            "price": 5,
-            "qty": 1
-          }
-        ],
-        "date": "23/11/2021",
-        "time": "12:25:30"
-      },
-      "id": 1
-    },
-    {
-      "client": "Dan",
-      "status": "pending",
-      "order": {
-        "items": [
-          {
-            "id": 5,
-            "name": "Hamburguesa simple",
-            "price": 10,
-            "qty": 1
-          },
-          {
-            "id": 6,
-            "name": "Hamburguesa doble",
-            "price": 15,
-            "qty": 1
-          },
-          {
-            "id": 9,
-            "name": "Agua 500ml",
-            "price": 5,
-            "qty": 1
-          }
-        ],
-        "date": "23/11/2021",
-        "time": "17:25:07"
-      },
-      "id": 2
-    },
-    {
-      "client": "Lili",
-      "status": "pending",
-      "order": {
-        "items": [
-          {
-            "id": 1,
-            "name": "Café americano",
-            "price": 5,
-            "qty": 1
-          },
-          {
-            "id": 2,
-            "name": "café con leche",
-            "price": 7,
-            "qty": 1
-          },
-          {
-            "id": 3,
-            "name": "Sandwich de jamón y queso",
-            "price": 10,
-            "qty": 1
-          },
-          {
-            "id": 4,
-            "name": "Jugo de frutas natural",
-            "price": 7,
-            "qty": 1
-          }
-        ],
-        "date": "24/11/2021",
-        "time": "09:40:40"
-      },
-      "id": 3
-    },
-    {
       "client": "ALICIAA",
-      "status": "pending",
+      "status": "done",
       "order": {
         "items": [
           {
@@ -170,7 +89,7 @@
     },
     {
       "client": "test",
-      "status": "pending",
+      "status": "done",
       "order": {
         "items": [
           {
@@ -196,6 +115,70 @@
         "time": "21:06:07"
       },
       "id": 5
+    },
+    {
+      "client": "Maria",
+      "status": "done",
+      "order": {
+        "items": [
+          {
+            "id": 5,
+            "name": "Hamburguesa simple",
+            "price": 10,
+            "qty": 1
+          },
+          {
+            "id": 7,
+            "name": "Papas fritas",
+            "price": 5,
+            "qty": 1
+          },
+          {
+            "id": 8,
+            "name": "Aros de cebolla",
+            "price": 5,
+            "qty": 1
+          },
+          {
+            "id": 11,
+            "name": "Bebida/gaseosa 500ml",
+            "price": 7,
+            "qty": 1
+          }
+        ],
+        "date": "26/11/2021",
+        "time": "11:24:22"
+      },
+      "id": 6
+    },
+    {
+      "client": "Ana",
+      "status": "pending",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 1
+          },
+          {
+            "id": 3,
+            "name": "Sandwich de jamón y queso",
+            "price": 10,
+            "qty": 1
+          },
+          {
+            "id": 4,
+            "name": "Jugo de frutas natural",
+            "price": 7,
+            "qty": 1
+          }
+        ],
+        "date": "26/11/2021",
+        "time": "12:53:17"
+      },
+      "id": 7
     }
   ]
 }
