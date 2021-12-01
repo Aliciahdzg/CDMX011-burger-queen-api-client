@@ -14,9 +14,6 @@ const Kitchen = () => {
   const [currentUser, setCurrentUser] = useState({});
   const [today, setDate] = useState(new Date());
   const [time, setTime] = useState(new Date());
-  // eslint-disable-next-line no-unused-vars
-  const [timer, setTimer] = useState(0);
-  const [timerOff, setTimerOff] = useState(true);
 
   const navigate = useNavigate();
 
@@ -68,20 +65,6 @@ const Kitchen = () => {
     setKitchenOrder(select);
   };
 
-  useEffect(() => {
-    let interval = null;
-
-    if (timerOff) {
-      interval = setInterval(() => {
-        setTimer((prevTime) => prevTime + 10);
-      }, 10);
-    } else {
-      clearInterval(interval);
-    }
-
-    return () => clearInterval(interval);
-  }, [timerOff]);
-
   return (
     <div className="kitchen-content">
       <Header
@@ -101,8 +84,6 @@ const Kitchen = () => {
           kitchenOrder={kitchenOrder}
           updateData={updateData}
           removeOrder={removeOrder}
-          timer={timer}
-          setTimerOff={setTimerOff}
         />
         <div />
       </div>

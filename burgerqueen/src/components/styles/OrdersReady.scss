@@ -1,0 +1,44 @@
+@import './Variables.scss';
+
+.container-done .items {
+  display: flex;
+  flex-wrap: wrap;
+  //overflow: auto;
+  //white-space: nowrap;
+}
+
+.container-info {
+  display: flex;
+  flex-direction: column;
+  background-color: $creamblur;
+  margin: 2vmin;
+  width: 25vmin;
+  height: 10vmin;
+  border-radius: 10px 10px 10px 10px;
+
+  h3 {
+    align-items: center;
+    margin: 0;
+    font-family: $titulos;
+    text-align: center;
+  }
+}
+
+.status-closeBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  p {
+    font-family: $body;
+    width: 8vmin;
+    text-align: center;
+    background-color: #45902cce;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: 2vmin;
+  }
+  button {
+    background-color: transparent;
+    border: none;
+    margin-left: 7vmin;
+  }
+}
