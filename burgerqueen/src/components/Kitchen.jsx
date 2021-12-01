@@ -27,7 +27,8 @@ const Kitchen = () => {
   });
 
   useEffect(() => {
-    api.get(urlK).then((res) => {
+    const endpoint = `${urlK}?status=pending`;
+    api.get(endpoint).then((res) => {
       if (!res.err) {
         setKitchenOrder(res);
       } else {
@@ -35,6 +36,19 @@ const Kitchen = () => {
       }
     });
   }, []);
+
+  const updateData = (data) => {
+    const endpoint = `${urlK}/${data.id}`;
+    const options = {
+      body: { status: 'done' },
+      headers: { 'Content-Type': 'application/json' }
+    };
+    api.patch(endpoint, options).then((res) => {
+      if (res.err) {
+        console.log(res.statusText);
+      }
+    });
+  };
 
   const handleLogout = () => {
     signOut(auth)
@@ -44,6 +58,11 @@ const Kitchen = () => {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const removeOrder = (item) => {
+    const select = kitchenOrder.filter((x) => x.id !== item.id);
+    setKitchenOrder(select);
   };
 
   return (
@@ -61,7 +80,11 @@ const Kitchen = () => {
         <h1>Órdenes en cocina</h1>
       </div>
       <div>
-        <KitchenOrder kitchenOrder={kitchenOrder} />
+        <KitchenOrder
+          kitchenOrder={kitchenOrder}
+          updateData={updateData}
+          removeOrder={removeOrder}
+        />
         <div />
       </div>
     </div>
