@@ -100,7 +100,6 @@ const Resum = (props) => {
             </p>
           ) : (
             <p>
-              {' '}
               <span>Total:</span> $ {total} .00
             </p>
           )}
@@ -108,7 +107,6 @@ const Resum = (props) => {
             type="button"
             onClick={() => {
               postOrder();
-              //  resetInputField();
             }}
           >
             Enviar

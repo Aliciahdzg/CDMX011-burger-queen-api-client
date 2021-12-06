@@ -5,7 +5,7 @@ import { Icon } from '@iconify/react';
 
 const BreackfastItem = (props) => {
   const { item, addItem, removeItem } = props;
-
+  // aqui se renderiza el menu del desayuno
   return (
     <div>
       <ul>

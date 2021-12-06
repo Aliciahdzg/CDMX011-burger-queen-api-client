@@ -1,3 +1,5 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable prettier/prettier */
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
 import './styles/Orders.scss';
@@ -12,6 +14,7 @@ import Breackfast from './Breackfast';
 import Header from './Header';
 import Lunch from './Lunch';
 import Resum from './Resum';
+import OrdersReady from './OrdersReady';
 
 const Orders = () => {
   const [breakfastMenu, setBreakfastMenu] = useState([]);
@@ -66,7 +69,8 @@ const Orders = () => {
     order: {
       items: resumItems,
       date: today.toLocaleDateString(),
-      time: time.toLocaleTimeString()
+      timeIn: time.toLocaleTimeString(),
+      timeOut: '00:00:00'
     }
   };
 
@@ -174,6 +178,7 @@ const Orders = () => {
       </div>
       <div className="div-logo-orders">
         <img src={Logo} alt="Logo" className="logo-orders-img" />
+        <OrdersReady time={time} setTime={setTime} />
       </div>
     </div>
   );
