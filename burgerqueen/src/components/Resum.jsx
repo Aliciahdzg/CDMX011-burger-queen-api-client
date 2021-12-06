@@ -14,9 +14,7 @@ const Resum = (props) => {
     setClient,
     api,
     urlK,
-    order,
-    start
-    // setTimerOn
+    order
   } = props;
   const [total, setTotal] = useState(0);
 
@@ -109,8 +107,6 @@ const Resum = (props) => {
             type="button"
             onClick={() => {
               postOrder();
-              start();
-              // setTimerOn(true);
             }}
           >
             Enviar
