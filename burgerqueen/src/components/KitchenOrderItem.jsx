@@ -2,7 +2,7 @@
 import React from 'react';
 
 const KitchenOrderItem = (props) => {
-  const { order, updateData, removeOrder, setTimerOff } = props;
+  const { order, updateData, removeOrder, difference, time } = props;
   return (
     <div className="order-container">
       <h3>{order.client}</h3>
@@ -14,13 +14,10 @@ const KitchenOrderItem = (props) => {
           </ul>
         ))}
       </div>
-
       <div className="order-btns">
         <div>
-          <span>{order.timer}</span>
-          {/* <span>{`0${Math.floor(timer / 600000) % 60}:`.slice(-3)}</span>
-          <span>{`0${Math.floor(timer / 60000) % 60}:`.slice(-3)}</span>
-          <span>{`0${Math.floor(timer / 1000) % 60}`.slice(-2)}</span>  */}
+          <p>Entrada: {order.order.timeIn}</p>
+          <p>Salida: {order.order.timeOut}</p>
         </div>
         <button
           type="button"
@@ -28,7 +25,7 @@ const KitchenOrderItem = (props) => {
           onClick={() => {
             updateData(order);
             removeOrder(order);
-            setTimerOff(false);
+            difference(order.order.timeIn, time);
           }}
         >
           Listo

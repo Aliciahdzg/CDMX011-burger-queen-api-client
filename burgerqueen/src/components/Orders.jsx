@@ -23,8 +23,6 @@ const Orders = () => {
   const [currentUser, setCurrentUser] = useState({});
   const [resumItems, setResumItems] = useState([]);
   const [activeMenu, setActiveMenu] = useState('breakfast');
-  const [timer, setTimer] = useState({ ms: 0, s: 0, m: 0, h: 0 });
-  // const [timerOn, setTimerOn] = useState(true);
 
   const [today, setDate] = useState(new Date());
   const [time, setTime] = useState(new Date());
@@ -71,8 +69,8 @@ const Orders = () => {
     order: {
       items: resumItems,
       date: today.toLocaleDateString(),
-      time: time.toLocaleTimeString(),
-      timer: `${timer.h}:${timer.m}:${timer.s}`
+      timeIn: time.toLocaleTimeString(),
+      timeOut: '00:00:00'
     }
   };
 
@@ -119,47 +117,6 @@ const Orders = () => {
       });
   };
 
-  let updatedMs = timer.ms;
-  let updatedS = timer.s;
-  let updatedM = timer.m;
-  let updatedH = timer.h;
-
-  const run = () => {
-    if (updatedM === 60) {
-      updatedH++;
-      updatedM = 0;
-    }
-    if (updatedS === 60) {
-      updatedM++;
-      updatedS = 0;
-    }
-    if (updatedMs === 100) {
-      updatedS++;
-      updatedMs = 0;
-    }
-    updatedMs++;
-    return setTimer({ ms: updatedMs, s: updatedS, m: updatedM, h: updatedH });
-  };
-
-  const start = () => {
-    run();
-    setInterval(run, 10);
-  };
-
-  /* useEffect(() => {
-    let interval = null;
-
-    if (timerOn) {
-      interval = setInterval(() => {
-        setTimer((prevTime) => prevTime + 10);
-      }, 10);
-    } else {
-      clearInterval(interval);
-    }
-
-    return () => clearInterval(interval);
-  }, [timerOn]); */
-
   return (
     <div className="orders-content">
       <Header
@@ -181,8 +138,6 @@ const Orders = () => {
             order={order}
             api={api}
             urlK={urlK}
-            // setTimerOn={setTimerOn}
-            start={start}
           />
         </div>
         <div className="menu">
@@ -223,7 +178,7 @@ const Orders = () => {
       </div>
       <div className="div-logo-orders">
         <img src={Logo} alt="Logo" className="logo-orders-img" />
-        <OrdersReady />
+        <OrdersReady time={time} setTime={setTime} />
       </div>
     </div>
   );

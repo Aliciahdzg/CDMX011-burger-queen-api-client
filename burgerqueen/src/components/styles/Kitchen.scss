@@ -9,33 +9,35 @@
   display: flex;
   flex-direction: column;
 
-  h1{
-    color:$orange;
+  h1 {
+    color: $orange;
     font-family: $titulos;
     margin: 0;
     padding-top: 2vmin;
     margin-left: 1vmin;
   }
 }
-.main-container{
-  display:flex;
+.main-container {
+  display: flex;
   flex-wrap: wrap;
-  justify-content:flex-start;
-  margin-left:1.8%;
+  justify-content: flex-start;
+  margin-left: 1.8%;
+  overflow: auto;
 }
-.order-container{
+.order-container {
   background-color: $cream2;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  width:30vmin;
+  width: 35vmin;
   margin: 1vmin;
-  h3{
+  h3 {
     text-align: center;
     background-color: rgba(242, 199, 68, 0.6);
     margin: 0;
     padding: 1vmin 0 1vmin 0;
     border-radius: 10px 10px 0px 0px;
+    // border-bottom: 2px solid $black;
   }
   ul {
     display: flex;
@@ -46,22 +48,26 @@
     font-size: 2.5vmin;
     margin: 2vmin;
     padding: 0;
-    margin:0 1vmin 0 1vmin;
+    margin: 0 1vmin 0 1vmin;
   }
 }
-.items-container{
-  height:23vmin;
+.items-container {
+  height: 23vmin;
+  overflow: auto;
 }
-.order-btns{
-  display:flex;
+.order-btns {
+  display: flex;
   flex-direction: row;
   align-items: center;
   background-color: rgba(242, 199, 68, 0.6);
-  justify-content:space-around;
+  justify-content: space-around;
   border-radius: 0px 0px 10px 10px;
 
+  p {
+    margin: 1vmin;
+  }
 }
-.order-ready-btn{
+.order-ready-btn {
   border-radius: 10px;
   cursor: pointer;
   border: none;
@@ -71,16 +77,14 @@
   font-family: $titulos;
   font-weight: 400;
   background-color: $orange;
-
 }
-.kitchen-titles{
-display: flex;
-flex-direction: row;
-align-items: center;
-margin-left:3vmin;
-margin-top: 1.5vmin;
+.kitchen-titles {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 3vmin;
+  margin-top: 1.5vmin;
 }
-.logo-kitchen{
-  width:10vmin;
-
+.logo-kitchen {
+  width: 10vmin;
 }

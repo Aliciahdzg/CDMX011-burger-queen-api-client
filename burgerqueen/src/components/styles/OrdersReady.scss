@@ -1,12 +1,44 @@
 @import './Variables.scss';
 
-.container-done .items {
+.container-done {
   display: flex;
-  flex-wrap: wrap;
-  //overflow: auto;
-  //white-space: nowrap;
+  justify-content: center;
+  overflow: auto;
+  position: relative;
+  width: 80%;
 }
 
+.horizontal-scroll {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  overflow: auto;
+  z-index: 1;
+  width: 100%;
+
+  button {
+    background: transparent;
+    //padding: 3vmin 8vmin;
+    border: 0;
+    margin: 0 6vmin;
+    margin-top: 1.5vmin;
+    cursor: pointer;
+    // height: 100%;
+  }
+}
+
+.items {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  left: 0;
+  margin: 2vmin 3vmin 2vmin 2vmin;
+  width: 100%;
+}
 .container-info {
   display: flex;
   flex-direction: column;

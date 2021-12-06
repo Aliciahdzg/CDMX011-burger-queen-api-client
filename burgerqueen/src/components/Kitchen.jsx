@@ -40,7 +40,7 @@ const Kitchen = () => {
   const updateData = (data) => {
     const endpoint = `${urlK}/${data.id}`;
     const options = {
-      body: { status: 'done' },
+      body: { status: 'done', salida: time.toLocaleTimeString() },
       headers: { 'Content-Type': 'application/json' }
     };
     api.patch(endpoint, options).then((res) => {
@@ -65,6 +65,14 @@ const Kitchen = () => {
     setKitchenOrder(select);
   };
 
+  const difference = (timeStart, timeEnd) => {
+    const timeStartNumber = timeStart.toLocaleNumber('es-MX');
+    const resultInMinutes = Math.round(
+      (timeEnd.getTime() - timeStartNumber.getTime()) / 60000
+    );
+    alert(`La orden quedo lista en ${resultInMinutes} minutos`);
+  };
+
   return (
     <div className="kitchen-content">
       <Header
@@ -84,6 +92,8 @@ const Kitchen = () => {
           kitchenOrder={kitchenOrder}
           updateData={updateData}
           removeOrder={removeOrder}
+          difference={difference}
+          time={time}
         />
         <div />
       </div>

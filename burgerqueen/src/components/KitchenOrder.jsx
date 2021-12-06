@@ -3,7 +3,15 @@ import React from 'react';
 import KitchenOrderItem from './KitchenOrderItem';
 
 const KitchenOrder = (props) => {
-  const { kitchenOrder, updateData, removeOrder, timer, setTimerOff } = props;
+  const {
+    kitchenOrder,
+    updateData,
+    removeOrder,
+    timer,
+    setTimerOff,
+    difference,
+    time
+  } = props;
   return (
     <div>
       <div className="main-container">
@@ -15,6 +23,8 @@ const KitchenOrder = (props) => {
             removeOrder={removeOrder}
             timer={timer}
             setTimerOff={setTimerOff}
+            difference={difference}
+            time={time}
           />
         ))}
       </div>
