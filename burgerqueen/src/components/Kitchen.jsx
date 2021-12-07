@@ -1,19 +1,23 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
-import { signOut, onAuthStateChanged } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import auth from '../firebase/firebaseConfig';
+import { useNavigate } from 'react-router-dom';
+import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { helpHttp } from '../helpers/helpHttp';
+
 import KitchenOrder from './KitchenOrder';
 import Header from './Header';
 import Logo from '../assets/upper-icon.png';
+
+import auth from '../firebase/firebaseConfig';
 import './styles/Kitchen.scss';
 
 const Kitchen = () => {
   const [kitchenOrder, setKitchenOrder] = useState([]);
+
   const [currentUser, setCurrentUser] = useState({});
+
   const [today, setDate] = useState(new Date());
   const [time, setTime] = useState(new Date());
 
@@ -21,12 +25,6 @@ const Kitchen = () => {
 
   const api = helpHttp();
   const urlK = 'http://localhost:5000/kitchen';
-
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setCurrentUser(user);
-    }
-  });
 
   useEffect(() => {
     const endpoint = `${urlK}?status=pending`;
@@ -38,6 +36,12 @@ const Kitchen = () => {
       }
     });
   }, []);
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setCurrentUser(user);
+    }
+  });
 
   const updateData = (data) => {
     const endpoint = `${urlK}/${data.id}`;

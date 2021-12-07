@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
+
 import { Icon } from '@iconify/react';
+
 import './styles/Login.scss';
 
 const FormLogin = ({ handleLogin, error }) => {
@@ -16,7 +18,9 @@ const FormLogin = ({ handleLogin, error }) => {
           <input
             type="email"
             placeholder="Correo electrónico"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
           />
         </div>
         <div className="div-password">
@@ -29,7 +33,9 @@ const FormLogin = ({ handleLogin, error }) => {
           <input
             type="password"
             placeholder="Contraseña"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
           />
         </div>
         {error && <p className="error">{error}</p>}

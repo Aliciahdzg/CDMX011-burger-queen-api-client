@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/no-autofocus */
 /* eslint-disable react/prop-types */
 import './styles/Resum.scss';
@@ -6,17 +5,16 @@ import { Icon } from '@iconify/react';
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 
-const Resum = (props) => {
-  const {
-    resumItems,
-    setResumItems,
-    removeAll,
-    client,
-    setClient,
-    api,
-    urlK,
-    order
-  } = props;
+const Resum = ({
+  resumItems,
+  setResumItems,
+  removeAll,
+  client,
+  setClient,
+  api,
+  urlK,
+  order
+}) => {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
@@ -77,7 +75,9 @@ const Resum = (props) => {
           autoFocus
           placeholder="Nombre de cliente"
           value={client}
-          onChange={(e) => setClient(e.target.value)}
+          onChange={(e) => {
+            setClient(e.target.value);
+          }}
         />
       </div>
 
@@ -100,7 +100,9 @@ const Resum = (props) => {
               <button
                 className="delete-icon"
                 type="button"
-                onClick={() => removeAll(item)}
+                onClick={() => {
+                  removeAll(item);
+                }}
               >
                 <Icon icon="cil:delete" color="#f2884b" height="30" />
               </button>

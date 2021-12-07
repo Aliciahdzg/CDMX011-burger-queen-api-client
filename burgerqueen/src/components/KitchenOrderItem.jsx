@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const KitchenOrderItem = (props) => {
-  const { order, updateData, removeOrder, difference } = props;
+const KitchenOrderItem = ({ order, updateData, removeOrder, difference }) => {
+  const { client } = order;
+
   const timeIn = new Date(order.order.timeIn);
+
   return (
     <div className="order-container">
-      <h3>{order.client}</h3>
+      <h3>{client}</h3>
       <div className="items-container">
         {order.order.items.map((item) => (
           <ul key={item.id}>
