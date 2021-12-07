@@ -1,17 +1,23 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
-import { signOut, onAuthStateChanged } from 'firebase/auth';
+import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import auth from '../firebase/firebaseConfig';
+import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { helpHttp } from '../helpers/helpHttp';
+
 import KitchenOrder from './KitchenOrder';
 import Header from './Header';
 import Logo from '../assets/upper-icon.png';
+
+import auth from '../firebase/firebaseConfig';
 import './styles/Kitchen.scss';
 
 const Kitchen = () => {
   const [kitchenOrder, setKitchenOrder] = useState([]);
+
   const [currentUser, setCurrentUser] = useState({});
+
   const [today, setDate] = useState(new Date());
   const [time, setTime] = useState(new Date());
 
@@ -19,12 +25,6 @@ const Kitchen = () => {
 
   const api = helpHttp();
   const urlK = 'http://localhost:5000/kitchen';
-
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setCurrentUser(user);
-    }
-  });
 
   useEffect(() => {
     const endpoint = `${urlK}?status=pending`;
@@ -36,6 +36,12 @@ const Kitchen = () => {
       }
     });
   }, []);
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setCurrentUser(user);
+    }
+  });
 
   const updateData = (data) => {
     const endpoint = `${urlK}/${data.id}`;
@@ -65,12 +71,16 @@ const Kitchen = () => {
     setKitchenOrder(select);
   };
 
-  const difference = (timeStart, timeEnd) => {
-    const timeStartNumber = timeStart.toLocaleNumber('es-MX');
-    const resultInMinutes = Math.round(
-      (timeEnd.getTime() - timeStartNumber.getTime()) / 60000
-    );
-    alert(`La orden quedo lista en ${resultInMinutes} minutos`);
+  const difference = (timeStart) => {
+    const diff = new Date(timeStart);
+    const diff2 = new Date() - diff;
+    const diffMins = Math.round(((diff2 % 86400000) % 3600000) / 60000); // minutes
+    Swal.fire({
+      title: 'Tiempo de Preparación',
+      text: `La orden quedo lista en ${diffMins} minutos`,
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    });
   };
 
   return (
@@ -80,8 +90,8 @@ const Kitchen = () => {
         handleLogout={handleLogout}
         today={today}
         setDate={setDate}
-        time={time}
         setTime={setTime}
+        time={time}
       />
       <div className="kitchen-titles">
         <img src={Logo} alt="Logo" className="logo-kitchen" />
@@ -93,7 +103,6 @@ const Kitchen = () => {
           updateData={updateData}
           removeOrder={removeOrder}
           difference={difference}
-          time={time}
         />
         <div />
       </div>

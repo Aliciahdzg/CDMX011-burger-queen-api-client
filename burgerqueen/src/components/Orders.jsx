@@ -2,26 +2,33 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
-import './styles/Orders.scss';
-import './styles/Menu.scss';
 import React, { useState, useEffect } from 'react';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { helpHttp } from '../helpers/helpHttp';
-import Logo from '../assets/upper-icon.png';
+
 import auth from '../firebase/firebaseConfig';
+
+import Logo from '../assets/upper-icon.png';
 import Breackfast from './Breackfast';
 import Header from './Header';
 import Lunch from './Lunch';
 import Resum from './Resum';
 import OrdersReady from './OrdersReady';
 
+import './styles/Orders.scss';
+import './styles/Menu.scss';
+
 const Orders = () => {
   const [breakfastMenu, setBreakfastMenu] = useState([]);
   const [lunchMenu, setLunchMenu] = useState([]);
+
   const [client, setClient] = useState('');
+
   const [currentUser, setCurrentUser] = useState({});
+
   const [resumItems, setResumItems] = useState([]);
+
   const [activeMenu, setActiveMenu] = useState('breakfast');
 
   const [today, setDate] = useState(new Date());
@@ -38,12 +45,6 @@ const Orders = () => {
   useEffect(() => {
     localStorage.setItem('orderList', JSON.stringify(resumItems));
   }, [resumItems]);
-
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setCurrentUser(user);
-    }
-  });
 
   useEffect(() => {
     api.get(urlB).then((res) => {
@@ -68,9 +69,7 @@ const Orders = () => {
     status: 'pending',
     order: {
       items: resumItems,
-      date: today.toLocaleDateString(),
-      timeIn: time.toLocaleTimeString(),
-      timeOut: '00:00:00'
+      timeIn: today
     }
   };
 
@@ -106,6 +105,12 @@ const Orders = () => {
     const select = resumItems.filter((x) => x.id !== item.id);
     setResumItems(select);
   };
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setCurrentUser(user);
+    }
+  });
 
   const handleLogout = () => {
     signOut(auth)
@@ -145,14 +150,18 @@ const Orders = () => {
             <button
               type="button"
               className="breackfast-btn"
-              onClick={() => setActiveMenu('breakfast')}
+              onClick={() => {
+                setActiveMenu('breakfast');
+              }}
             >
               Desayuno
             </button>
             <button
               type="button"
               className="lunch-btn"
-              onClick={() => setActiveMenu('lunch')}
+              onClick={() => {
+                setActiveMenu('lunch');
+              }}
             >
               Comida
             </button>

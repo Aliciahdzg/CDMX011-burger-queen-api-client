@@ -68,6 +68,17 @@
   margin-left: 0.5vmin;
   overflow: auto;
 }
+.items-container::-webkit-scrollbar{
+  width:1vmin;
+  height:10vmin;
+}
+.items-container::-webkit-scrollbar-thumb {
+  background: $orange;
+  border-radius: 4px;
+}
+.items-container::-webkit-scrollbar-thumb:active {
+  background-color: $yellow;
+}
 .item-body {
   display: flex;
   flex-direction: row;

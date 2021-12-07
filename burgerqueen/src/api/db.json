@@ -63,5 +63,148 @@
       "price": 10
     }
   ],
-  "kitchen": []
+  "kitchen": [
+    {
+      "client": "test",
+      "status": "pending",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-06T19:48:09.090Z"
+      },
+      "id": 1
+    },
+    {
+      "client": "de",
+      "status": "pending",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 3
+          },
+          {
+            "id": 3,
+            "name": "Sandwich de jamón y queso",
+            "price": 10,
+            "qty": 1
+          },
+          {
+            "id": 2,
+            "name": "café con leche",
+            "price": 7,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-06T19:50:11.289Z"
+      },
+      "id": 2
+    },
+    {
+      "client": "k",
+      "status": "done",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-06T19:50:21.851Z"
+      },
+      "id": 3,
+      "salida": "14:19:29"
+    },
+    {
+      "client": "k",
+      "status": "done",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-06T19:50:34.664Z"
+      },
+      "id": 4,
+      "salida": "14:21:04"
+    },
+    {
+      "client": "m",
+      "status": "pending",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 3
+          }
+        ],
+        "timeIn": "2021-12-06T19:50:47.696Z"
+      },
+      "id": 5
+    },
+    {
+      "client": "ll",
+      "status": "pending",
+      "order": {
+        "items": [
+          {
+            "id": 2,
+            "name": "café con leche",
+            "price": 7,
+            "qty": 2
+          }
+        ],
+        "timeIn": "2021-12-06T19:51:13.698Z"
+      },
+      "id": 6
+    },
+    {
+      "client": "dd",
+      "status": "pending",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 3
+          }
+        ],
+        "timeIn": "2021-12-06T19:51:20.697Z"
+      },
+      "id": 7
+    },
+    {
+      "client": "km",
+      "status": "pending",
+      "order": {
+        "items": [
+          {
+            "id": 3,
+            "name": "Sandwich de jamón y queso",
+            "price": 10,
+            "qty": 2
+          }
+        ],
+        "timeIn": "2021-12-06T19:51:27.697Z"
+      },
+      "id": 8
+    }
+  ]
 }

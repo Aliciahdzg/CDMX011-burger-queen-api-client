@@ -1,23 +1,25 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const KitchenOrderItem = (props) => {
-  const { order, updateData, removeOrder, difference, time } = props;
+const KitchenOrderItem = ({ order, updateData, removeOrder, difference }) => {
+  const { client } = order;
+
+  const timeIn = new Date(order.order.timeIn);
+
   return (
     <div className="order-container">
-      <h3>{order.client}</h3>
+      <h3>{client}</h3>
       <div className="items-container">
         {order.order.items.map((item) => (
-          <ul>
-            <li key={item.id}>{item.name}</li>
+          <ul key={item.id}>
+            <li>{item.name}</li>
             <li>{item.qty}</li>
           </ul>
         ))}
       </div>
       <div className="order-btns">
         <div>
-          <p>Entrada: {order.order.timeIn}</p>
-          <p>Salida: {order.order.timeOut}</p>
+          <p>Entrada: {timeIn.toLocaleTimeString()}</p>
         </div>
         <button
           type="button"
@@ -25,7 +27,7 @@ const KitchenOrderItem = (props) => {
           onClick={() => {
             updateData(order);
             removeOrder(order);
-            difference(order.order.timeIn, time);
+            difference(order.order.timeIn);
           }}
         >
           Listo
