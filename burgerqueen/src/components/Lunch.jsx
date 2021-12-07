@@ -2,21 +2,17 @@
 import React from 'react';
 import LunchItem from './LunchItem';
 
-const Lunch = (props) => {
-  const { lunchMenu, addItem, removeItem } = props;
-
-  return (
-    <div>
-      {lunchMenu.map((item) => (
-        <LunchItem
-          key={item.id}
-          item={item}
-          addItem={addItem}
-          removeItem={removeItem}
-        />
-      ))}
-    </div>
-  );
-};
+const Lunch = ({ lunchMenu, addItem, removeItem }) => (
+  <div>
+    {lunchMenu.map((item) => (
+      <LunchItem
+        key={item.id}
+        item={item}
+        addItem={addItem}
+        removeItem={removeItem}
+      />
+    ))}
+  </div>
+);
 
 export default Lunch;

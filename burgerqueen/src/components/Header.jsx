@@ -4,9 +4,14 @@ import './styles/Header.scss';
 import React, { useEffect } from 'react';
 import { Icon } from '@iconify/react';
 
-const Header = (props) => {
-  const { currentUser, handleLogout, setDate, setTime, today, time } = props;
-
+const Header = ({
+  currentUser,
+  handleLogout,
+  setDate,
+  setTime,
+  today,
+  time
+}) => {
   useEffect(() => {
     const timer = setInterval(() => {
       // Creates an interval which will update the current data every minute
@@ -39,7 +44,9 @@ const Header = (props) => {
         icon="ic:twotone-logout"
         color="#f2884b"
         height="40"
-        onClick={() => handleLogout()}
+        onClick={() => {
+          handleLogout();
+        }}
       />
     </div>
   );
