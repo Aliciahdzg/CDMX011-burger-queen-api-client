@@ -20,13 +20,10 @@ const Resum = (props) => {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    if (resumItems.length === 0) {
-      return 0;
-    }
     const prices = resumItems.map((item) => item.qty * item.price);
     const reducer = (previousValue, currentValue) =>
       previousValue + currentValue;
-    return setTotal(prices.reduce(reducer));
+    setTotal(prices.reduce(reducer, 0));
   }, [resumItems]);
 
   const resetInputField = () => {
@@ -108,15 +105,10 @@ const Resum = (props) => {
           ))}
         </div>
         <div className="div-total">
-          {resumItems.length === 0 ? (
-            <p>
-              <span>Total:</span> $ 0.00
-            </p>
-          ) : (
-            <p>
-              <span>Total:</span> $ {total} .00
-            </p>
-          )}
+          <p>
+            <span>Total:</span> $ {total} .00
+          </p>
+
           <button
             type="button"
             onClick={() => {

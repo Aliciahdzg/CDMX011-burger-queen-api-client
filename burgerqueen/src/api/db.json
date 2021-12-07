@@ -82,7 +82,7 @@
     },
     {
       "client": "de",
-      "status": "pending",
+      "status": "done",
       "order": {
         "items": [
           {
@@ -106,7 +106,8 @@
         ],
         "timeIn": "2021-12-06T19:50:11.289Z"
       },
-      "id": 2
+      "id": 2,
+      "salida": "09:57:35"
     },
     {
       "client": "k",
@@ -160,7 +161,7 @@
     },
     {
       "client": "ll",
-      "status": "pending",
+      "status": "done",
       "order": {
         "items": [
           {
@@ -172,7 +173,8 @@
         ],
         "timeIn": "2021-12-06T19:51:13.698Z"
       },
-      "id": 6
+      "id": 6,
+      "salida": "10:06:09"
     },
     {
       "client": "dd",
@@ -205,6 +207,41 @@
         "timeIn": "2021-12-06T19:51:27.697Z"
       },
       "id": 8
+    },
+    {
+      "client": "Raul",
+      "status": "done",
+      "order": {
+        "items": [
+          {
+            "id": 3,
+            "name": "Sandwich de jamón y queso",
+            "price": 10,
+            "qty": 1
+          },
+          {
+            "id": 4,
+            "name": "Jugo de frutas natural",
+            "price": 7,
+            "qty": 1
+          },
+          {
+            "id": 9,
+            "name": "Agua 500ml",
+            "price": 5,
+            "qty": 2
+          },
+          {
+            "id": 10,
+            "name": "Agua 750ml",
+            "price": 7,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-07T15:56:42.355Z"
+      },
+      "id": 9,
+      "salida": "09:57:49"
     }
   ]
 }
