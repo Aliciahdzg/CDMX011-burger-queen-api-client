@@ -68,9 +68,7 @@ const Orders = () => {
     status: 'pending',
     order: {
       items: resumItems,
-      date: today.toLocaleDateString(),
-      timeIn: time.toLocaleTimeString(),
-      timeOut: '00:00:00'
+      timeIn: today
     }
   };
 

@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import auth from '../firebase/firebaseConfig';
 import { helpHttp } from '../helpers/helpHttp';
 import KitchenOrder from './KitchenOrder';
@@ -66,12 +67,16 @@ const Kitchen = () => {
     setKitchenOrder(select);
   };
 
-  const difference = (timeStart, timeEnd) => {
-    const timeStartNumber = timeStart.toLocaleNumber('es-MX');
-    const resultInMinutes = Math.round(
-      (timeEnd.getTime() - timeStartNumber.getTime()) / 60000
-    );
-    alert(`La orden quedo lista en ${resultInMinutes} minutos`);
+  const difference = (timeStart) => {
+    const diff = new Date(timeStart);
+    const diff2 = new Date() - diff;
+    const diffMins = Math.round(((diff2 % 86400000) % 3600000) / 60000); // minutes
+    Swal.fire({
+      title: 'Tiempo de Preparación',
+      text: `La orden quedo lista en ${diffMins} minutos`,
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    });
   };
 
   return (
@@ -81,8 +86,8 @@ const Kitchen = () => {
         handleLogout={handleLogout}
         today={today}
         setDate={setDate}
-        time={time}
         setTime={setTime}
+        time={time}
       />
       <div className="kitchen-titles">
         <img src={Logo} alt="Logo" className="logo-kitchen" />
@@ -94,7 +99,6 @@ const Kitchen = () => {
           updateData={updateData}
           removeOrder={removeOrder}
           difference={difference}
-          time={time}
         />
         <div />
       </div>

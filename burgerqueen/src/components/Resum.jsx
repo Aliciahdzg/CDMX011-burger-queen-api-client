@@ -4,6 +4,7 @@
 import './styles/Resum.scss';
 import { Icon } from '@iconify/react';
 import React, { useState, useEffect } from 'react';
+import Swal from 'sweetalert2';
 
 const Resum = (props) => {
   const {
@@ -38,21 +39,34 @@ const Resum = (props) => {
       headers: { 'Content-Type': 'application/json' }
     };
     if (!client) {
-      alert('Nombre del cliente es requerido');
+      Swal.fire({
+        title: 'Error!',
+        text: 'Nombre de cliente es requerido',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar'
+      });
       return;
     }
-    const r = window.confirm('¿Enviar orden?');
-    if (r) {
-      api
-        .post(urlK, options)
-        .then((res) => {
-          if (res.err) {
-            console.log(res.statusText);
-          }
-        })
-        .then(setResumItems([]))
-        .then(resetInputField());
-    }
+    Swal.fire({
+      title: '¿Enviar Orden?',
+      icon: 'question',
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Enviar!',
+      showCancelButton: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        api
+          .post(urlK, options)
+          .then((res) => {
+            if (res.err) {
+              console.log(res.statusText);
+            }
+          })
+          .then(setResumItems([]))
+          .then(resetInputField());
+      }
+    });
   };
 
   return (
