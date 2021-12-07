@@ -369,7 +369,7 @@
     },
     {
       "client": "Raul",
-      "status": "pending",
+      "status": "done",
       "order": {
         "items": [
           {
@@ -382,6 +382,130 @@
         "timeIn": "2021-12-07T21:07:36.117Z"
       },
       "id": 14
+    },
+    {
+      "client": "Carlos",
+      "status": "pending",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 2
+          },
+          {
+            "id": 8,
+            "name": "Aros de cebolla",
+            "price": 5,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-07T22:53:33.791Z"
+      },
+      "id": 15
+    },
+    {
+      "client": "Sarah",
+      "status": "pending",
+      "order": {
+        "items": [
+          {
+            "id": 5,
+            "name": "Hamburguesa simple",
+            "price": 10,
+            "qty": 1
+          },
+          {
+            "id": 8,
+            "name": "Aros de cebolla",
+            "price": 5,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-07T22:53:52.790Z"
+      },
+      "id": 16
+    },
+    {
+      "client": "hola",
+      "status": "pending",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-07T23:13:32.160Z"
+      },
+      "id": 17
+    },
+    {
+      "client": "test1",
+      "status": "pending",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-07T23:15:41.750Z"
+      },
+      "id": 18
+    },
+    {
+      "client": "test 2",
+      "status": "pending",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-07T23:15:48.751Z"
+      },
+      "id": 19
+    },
+    {
+      "client": "test 4",
+      "status": "pending",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-07T23:15:53.751Z"
+      },
+      "id": 20
+    },
+    {
+      "client": "test 5",
+      "status": "done",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-07T23:15:59.752Z"
+      },
+      "id": 21
     }
   ]
 }

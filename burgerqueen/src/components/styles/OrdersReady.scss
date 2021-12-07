@@ -19,6 +19,14 @@
   width: 100%;
   overflow: auto;
 }
+.items::-webkit-scrollbar{
+  width:1vmin;
+  height:1vmin;
+  &-thumb {
+    background: $orange;
+    border-radius: 4px;
+  }
+}
 .container-info {
   display: flex;
   flex-direction: column;

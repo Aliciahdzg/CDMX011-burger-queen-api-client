@@ -8,6 +8,7 @@
   height: 100vmin;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 
   h1 {
     color: $orange;
@@ -17,19 +18,28 @@
     margin-left: 1vmin;
   }
 }
+.kitchen-content::-webkit-scrollbar{
+  width:1vmin;
+  height:1vmin;
+  &-thumb {
+    background: $orange;
+    border-radius: 4px;
+  }
+}
 .main-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-left: 1.8%;
-  overflow: auto;
+  margin-left:2.3vmin;
+ 
 }
+
 .order-container {
   background-color: $cream2;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  width: 35vmin;
+  width: 30vmin;
   margin: 1vmin;
   h3 {
     text-align: center;
@@ -51,11 +61,20 @@
     margin: 0 1vmin 0 1vmin;
   }
 }
-.items-container {
+.kitchen-items-container {
   height: 23vmin;
   overflow: auto;
 }
+.kitchen-items-container::-webkit-scrollbar{
+  width:1vmin;
+  height:1vmin;
+  &-thumb {
+    background: $orange;
+    border-radius: 4px;
+  }
+}
 .order-btns {
+  height:7vmin;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -65,6 +84,7 @@
 
   p {
     margin: 1vmin;
+    font-family: $body;
   }
 }
 .order-ready-btn {
@@ -77,6 +97,7 @@
   font-family: $titulos;
   font-weight: 400;
   background-color: $orange;
+  margin:1vmin;
 }
 .kitchen-titles {
   display: flex;

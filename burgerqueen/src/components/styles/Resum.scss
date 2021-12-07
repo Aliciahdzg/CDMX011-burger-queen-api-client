@@ -62,7 +62,7 @@
   color: $orange;
 }
 .items-container {
-  height: 39vmin;
+  height: 45vmin;
   display: flex;
   flex-direction: column;
   margin-left: 0.5vmin;
@@ -70,15 +70,14 @@
 }
 .items-container::-webkit-scrollbar{
   width:1vmin;
-  height:10vmin;
+  height:1vmin;
+  &-thumb {
+    background: $orange;
+    border-radius: 4px;
+  }
 }
-.items-container::-webkit-scrollbar-thumb {
-  background: $orange;
-  border-radius: 4px;
-}
-.items-container::-webkit-scrollbar-thumb:active {
-  background-color: $yellow;
-}
+
+
 .item-body {
   display: flex;
   flex-direction: row;

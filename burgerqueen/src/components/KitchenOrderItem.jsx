@@ -9,7 +9,7 @@ const KitchenOrderItem = ({ order, updateData, removeOrder, difference }) => {
   return (
     <div className="order-container">
       <h3>{client}</h3>
-      <div className="items-container">
+      <div className="kitchen-items-container">
         {order.order.items.map((item) => (
           <ul key={item.id}>
             <li>{item.name}</li>
