@@ -2,7 +2,7 @@
 import React from 'react';
 
 const KitchenOrderItem = (props) => {
-  const { order, updateData, removeOrder, difference, time } = props;
+  const { order, updateData, removeOrder, difference } = props;
   return (
     <div className="order-container">
       <h3>{order.client}</h3>
@@ -17,7 +17,6 @@ const KitchenOrderItem = (props) => {
       <div className="order-btns">
         <div>
           <p>Entrada: {order.order.timeIn}</p>
-          <p>Salida: {order.order.timeOut}</p>
         </div>
         <button
           type="button"
@@ -25,7 +24,7 @@ const KitchenOrderItem = (props) => {
           onClick={() => {
             updateData(order);
             removeOrder(order);
-            difference(order.order.timeIn, time);
+            difference(order.order.timeInAll);
           }}
         >
           Listo

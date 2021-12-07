@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import auth from '../firebase/firebaseConfig';
 import { helpHttp } from '../helpers/helpHttp';
 import KitchenOrder from './KitchenOrder';
@@ -40,7 +41,7 @@ const Kitchen = () => {
   const updateData = (data) => {
     const endpoint = `${urlK}/${data.id}`;
     const options = {
-      body: { status: 'done', salida: time.toLocaleTimeString() },
+      body: { status: 'done', timeOut: time.toLocaleTimeString() },
       headers: { 'Content-Type': 'application/json' }
     };
     api.patch(endpoint, options).then((res) => {
@@ -65,12 +66,17 @@ const Kitchen = () => {
     setKitchenOrder(select);
   };
 
-  const difference = (timeStart, timeEnd) => {
-    const timeStartNumber = timeStart.toLocaleNumber('es-MX');
-    const resultInMinutes = Math.round(
-      (timeEnd.getTime() - timeStartNumber.getTime()) / 60000
-    );
-    alert(`La orden quedo lista en ${resultInMinutes} minutos`);
+  const difference = (timeStart) => {
+    const timeEnd = new Date();
+    const timeStartNumber = new Date(timeStart);
+    const result = timeEnd.getTime() - timeStartNumber.getTime();
+    const resultInMinutes = Math.round(result / 60000);
+    Swal.fire({
+      title: 'Tiempo de preparación',
+      text: `La orden quedo lista en ${resultInMinutes} minutos`,
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    });
   };
 
   return (
@@ -93,7 +99,6 @@ const Kitchen = () => {
           updateData={updateData}
           removeOrder={removeOrder}
           difference={difference}
-          time={time}
         />
         <div />
       </div>

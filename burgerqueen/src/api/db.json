@@ -63,5 +63,58 @@
       "price": 10
     }
   ],
-  "kitchen": []
+  "kitchen": [
+    {
+      "client": "Carlos",
+      "status": "done",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 1
+          },
+          {
+            "id": 2,
+            "name": "café con leche",
+            "price": 7,
+            "qty": 1
+          },
+          {
+            "id": 3,
+            "name": "Sandwich de jamón y queso",
+            "price": 10,
+            "qty": 1
+          },
+          {
+            "id": 4,
+            "name": "Jugo de frutas natural",
+            "price": 7,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-06T19:07:22.316Z"
+      },
+      "id": 1,
+      "timeOut": "13:07:46"
+    },
+    {
+      "client": "Alicia",
+      "status": "done",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-06T19:12:27.252Z"
+      },
+      "id": 2,
+      "timeOut": "9:19:57"
+    }
+  ]
 }

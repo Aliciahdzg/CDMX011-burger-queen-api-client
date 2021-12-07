@@ -3,9 +3,9 @@ import React from 'react';
 import { Icon } from '@iconify/react';
 
 const OrderReadyItem = (props) => {
-  const { order, scrl } = props;
+  const { order } = props;
   return (
-    <div className="container-info" ref={scrl}>
+    <div className="container-info">
       <h3>{order.client}</h3>
       <div className="status-closeBtn">
         <p>{order.status}</p>
