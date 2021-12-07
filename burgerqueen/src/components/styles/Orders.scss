@@ -14,6 +14,7 @@
   flex-direction: row;
 }
 .div-logo-orders {
+  width:100%;
   height: 18vmin;
   display: flex;
   //flex-direction: row;
@@ -27,7 +28,8 @@
 .logo-orders-img {
   width: 10vmin;
   float: left;
-  padding-right: 4vmin;
+  padding-right: 2vmin;
+  margin-left:1vmin;
 }
 .resum {
   width: 50%;

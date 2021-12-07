@@ -66,7 +66,7 @@
   "kitchen": [
     {
       "client": "test",
-      "status": "pending",
+      "status": "closed",
       "order": {
         "items": [
           {
@@ -82,7 +82,7 @@
     },
     {
       "client": "de",
-      "status": "done",
+      "status": "closed",
       "order": {
         "items": [
           {
@@ -111,7 +111,7 @@
     },
     {
       "client": "k",
-      "status": "done",
+      "status": "closed",
       "order": {
         "items": [
           {
@@ -128,7 +128,7 @@
     },
     {
       "client": "k",
-      "status": "done",
+      "status": "closed",
       "order": {
         "items": [
           {
@@ -145,7 +145,7 @@
     },
     {
       "client": "m",
-      "status": "pending",
+      "status": "closed",
       "order": {
         "items": [
           {
@@ -161,7 +161,7 @@
     },
     {
       "client": "ll",
-      "status": "done",
+      "status": "closed",
       "order": {
         "items": [
           {
@@ -178,7 +178,7 @@
     },
     {
       "client": "dd",
-      "status": "pending",
+      "status": "closed",
       "order": {
         "items": [
           {
@@ -194,7 +194,7 @@
     },
     {
       "client": "km",
-      "status": "pending",
+      "status": "closed",
       "order": {
         "items": [
           {
@@ -210,7 +210,7 @@
     },
     {
       "client": "Raul",
-      "status": "done",
+      "status": "closed",
       "order": {
         "items": [
           {
@@ -242,6 +242,146 @@
       },
       "id": 9,
       "salida": "09:57:49"
+    },
+    {
+      "client": "KK",
+      "status": "closed",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-07T19:36:58.632Z"
+      },
+      "id": 10
+    },
+    {
+      "client": "claudia",
+      "status": "closed",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 1
+          },
+          {
+            "id": 6,
+            "name": "Hamburguesa doble",
+            "price": 15,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-07T21:04:03.397Z"
+      },
+      "id": 11
+    },
+    {
+      "client": "Alicia",
+      "status": "pending",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 1
+          },
+          {
+            "id": 2,
+            "name": "café con leche",
+            "price": 7,
+            "qty": 1
+          },
+          {
+            "id": 3,
+            "name": "Sandwich de jamón y queso",
+            "price": 10,
+            "qty": 1
+          },
+          {
+            "id": 4,
+            "name": "Jugo de frutas natural",
+            "price": 7,
+            "qty": 1
+          },
+          {
+            "id": 5,
+            "name": "Hamburguesa simple",
+            "price": 10,
+            "qty": 1
+          },
+          {
+            "id": 6,
+            "name": "Hamburguesa doble",
+            "price": 15,
+            "qty": 1
+          },
+          {
+            "id": 7,
+            "name": "Papas fritas",
+            "price": 5,
+            "qty": 1
+          },
+          {
+            "id": 8,
+            "name": "Aros de cebolla",
+            "price": 5,
+            "qty": 1
+          },
+          {
+            "id": 9,
+            "name": "Agua 500ml",
+            "price": 5,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-07T21:07:16.115Z"
+      },
+      "id": 12
+    },
+    {
+      "client": "Dani",
+      "status": "done",
+      "order": {
+        "items": [
+          {
+            "id": 5,
+            "name": "Hamburguesa simple",
+            "price": 10,
+            "qty": 1
+          },
+          {
+            "id": 6,
+            "name": "Hamburguesa doble",
+            "price": 15,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-07T21:07:28.115Z"
+      },
+      "id": 13
+    },
+    {
+      "client": "Raul",
+      "status": "pending",
+      "order": {
+        "items": [
+          {
+            "id": 5,
+            "name": "Hamburguesa simple",
+            "price": 10,
+            "qty": 1
+          }
+        ],
+        "timeIn": "2021-12-07T21:07:36.117Z"
+      },
+      "id": 14
     }
   ]
 }

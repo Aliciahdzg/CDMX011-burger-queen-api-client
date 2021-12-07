@@ -46,7 +46,7 @@ const Kitchen = () => {
   const updateData = (data) => {
     const endpoint = `${urlK}/${data.id}`;
     const options = {
-      body: { status: 'done', salida: time.toLocaleTimeString() },
+      body: { status: 'done' },
       headers: { 'Content-Type': 'application/json' }
     };
     api.patch(endpoint, options).then((res) => {

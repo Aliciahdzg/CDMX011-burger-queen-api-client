@@ -110,7 +110,6 @@ const Resum = ({
           <p>
             <span>Total:</span> $ {total} .00
           </p>
-
           <button
             type="button"
             onClick={() => {
