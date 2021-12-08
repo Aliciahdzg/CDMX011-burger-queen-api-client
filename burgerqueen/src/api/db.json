@@ -283,7 +283,7 @@
     },
     {
       "client": "Alicia",
-      "status": "pending",
+      "status": "done",
       "order": {
         "items": [
           {
@@ -385,7 +385,7 @@
     },
     {
       "client": "Carlos",
-      "status": "pending",
+      "status": "done",
       "order": {
         "items": [
           {
@@ -407,7 +407,7 @@
     },
     {
       "client": "Sarah",
-      "status": "pending",
+      "status": "done",
       "order": {
         "items": [
           {
@@ -429,7 +429,7 @@
     },
     {
       "client": "hola",
-      "status": "pending",
+      "status": "done",
       "order": {
         "items": [
           {
@@ -445,7 +445,7 @@
     },
     {
       "client": "test1",
-      "status": "pending",
+      "status": "done",
       "order": {
         "items": [
           {
@@ -461,7 +461,7 @@
     },
     {
       "client": "test 2",
-      "status": "pending",
+      "status": "done",
       "order": {
         "items": [
           {
@@ -477,7 +477,7 @@
     },
     {
       "client": "test 4",
-      "status": "pending",
+      "status": "done",
       "order": {
         "items": [
           {

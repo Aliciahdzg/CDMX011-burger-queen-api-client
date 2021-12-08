@@ -73,11 +73,17 @@ const Kitchen = () => {
 
   const difference = (timeStart) => {
     const diff = new Date(timeStart);
-    const diff2 = new Date() - diff;
-    const diffMins = Math.round(((diff2 % 86400000) % 3600000) / 60000); // minutes
+    const diff2 = new Date();
+    const test = diff2.getTime() - diff.getTime();
+    let diffMins = Math.round(test / 60000); // minutes
+    let unit = 'minutos';
+    if (diffMins > 60) {
+      Math.round((diffMins /= 60));
+      unit = 'horas';
+    }
     Swal.fire({
       title: 'Tiempo de Preparación',
-      text: `La orden quedo lista en ${diffMins} minutos`,
+      text: `La orden quedo lista en ${diffMins} ${unit}`,
       icon: 'success',
       confirmButtonText: 'Aceptar'
     });
