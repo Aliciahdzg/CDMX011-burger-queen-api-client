@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-param-reassign */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import { signOut, onAuthStateChanged } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import { helpHttp } from '../helpers/helpHttp';
 
 import KitchenOrder from './KitchenOrder';
@@ -13,10 +14,10 @@ import Logo from '../assets/upper-icon.png';
 import auth from '../firebase/firebaseConfig';
 import './styles/Kitchen.scss';
 
-const Kitchen = () => {
+const Kitchen = ({ isAuthenticate }) => {
   const [kitchenOrder, setKitchenOrder] = useState([]);
 
-  const [currentUser, setCurrentUser] = useState({});
+  // const [currentUser, setCurrentUser] = useState({});
 
   const [today, setDate] = useState(new Date());
   const [time, setTime] = useState(new Date());
@@ -37,11 +38,11 @@ const Kitchen = () => {
     });
   }, []);
 
-  onAuthStateChanged(auth, (user) => {
+  /* onAuthStateChanged(auth, (user) => {
     if (user) {
       setCurrentUser(user);
     }
-  });
+  }); */
 
   const updateData = (data) => {
     const endpoint = `${urlK}/${data.id}`;
@@ -92,7 +93,7 @@ const Kitchen = () => {
   return (
     <div className="kitchen-content">
       <Header
-        currentUser={currentUser}
+        isAuthenticate={isAuthenticate}
         handleLogout={handleLogout}
         today={today}
         setDate={setDate}

@@ -3,7 +3,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
-import { signOut, onAuthStateChanged } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { helpHttp } from '../helpers/helpHttp';
 
@@ -19,13 +19,11 @@ import OrdersReady from './OrdersReady';
 import './styles/Orders.scss';
 import './styles/Menu.scss';
 
-const Orders = () => {
+const Orders = ({ isAuthenticate }) => {
   const [breakfastMenu, setBreakfastMenu] = useState([]);
   const [lunchMenu, setLunchMenu] = useState([]);
 
   const [client, setClient] = useState('');
-
-  const [currentUser, setCurrentUser] = useState({});
 
   const [resumItems, setResumItems] = useState([]);
 
@@ -106,12 +104,6 @@ const Orders = () => {
     setResumItems(select);
   };
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setCurrentUser(user);
-    }
-  });
-
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
@@ -125,7 +117,7 @@ const Orders = () => {
   return (
     <div className="orders-content">
       <Header
-        currentUser={currentUser}
+        isAuthenticate={isAuthenticate}
         handleLogout={handleLogout}
         today={today}
         setDate={setDate}
