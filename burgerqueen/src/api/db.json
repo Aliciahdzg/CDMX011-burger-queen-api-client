@@ -429,7 +429,7 @@
     },
     {
       "client": "hola",
-      "status": "done",
+      "status": "closed",
       "order": {
         "items": [
           {
@@ -493,7 +493,7 @@
     },
     {
       "client": "test 5",
-      "status": "done",
+      "status": "closed",
       "order": {
         "items": [
           {
@@ -506,6 +506,40 @@
         "timeIn": "2021-12-07T23:15:59.752Z"
       },
       "id": 21
+    },
+    {
+      "client": "Dani",
+      "status": "done",
+      "order": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
+            "qty": 1
+          },
+          {
+            "id": 2,
+            "name": "café con leche",
+            "price": 7,
+            "qty": 1
+          },
+          {
+            "id": 3,
+            "name": "Sandwich de jamón y queso",
+            "price": 10,
+            "qty": 2
+          },
+          {
+            "id": 4,
+            "name": "Jugo de frutas natural",
+            "price": 7,
+            "qty": 2
+          }
+        ],
+        "timeIn": "2021-12-08T16:46:22.311Z"
+      },
+      "id": 22
     }
   ]
 }

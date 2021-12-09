@@ -5,13 +5,14 @@ import React, { useEffect } from 'react';
 import { Icon } from '@iconify/react';
 
 const Header = ({
-  currentUser,
+  isAuthenticate,
   handleLogout,
   setDate,
   setTime,
   today,
   time
 }) => {
+  const { email } = isAuthenticate;
   useEffect(() => {
     const timer = setInterval(() => {
       // Creates an interval which will update the current data every minute
@@ -27,13 +28,13 @@ const Header = ({
   return (
     <div className="header">
       <div className="current-user">
-        {currentUser.email === 'meseros@burgerqueen.com' && (
+        {email === 'meseros@burgerqueen.com' && (
           <Icon icon="vs:user-waiter" color="#f2884b" height="40" />
         )}
-        {currentUser.email === 'cocina@burgerqueen.com' && (
+        {email === 'cocina@burgerqueen.com' && (
           <Icon icon="icon-park-outline:chef-hat" color="#f2884b" height="40" />
         )}
-        <p>{currentUser.email}</p>
+        <p>{email}</p>
       </div>
       <div className="current-time">
         <p> {today.toLocaleDateString()}</p>

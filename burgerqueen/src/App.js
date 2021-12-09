@@ -1,19 +1,40 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import { onAuthStateChanged } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
 
-import auth from './firebase/firebaseConfig';
+import auth, { db } from './firebase/firebaseConfig';
 
-import Login from './components/Login';
-import Orders from './components/Orders';
-import Kitchen from './components/Kitchen';
+import Views from './components/Views';
 
 function App() {
   const [isAuthenticate, setIsAuthenticate] = useState(null);
 
+  const getRol = async (uid) => {
+    const docuRef = doc(db, `users/${uid}`);
+    const cipherDocu = await getDoc(docuRef);
+    const finalInfo = cipherDocu.data().role;
+    return finalInfo;
+  };
+
+  const setUserWithRole = (user) => {
+    getRol(user.uid).then((role) => {
+      const userData = {
+        uid: user.uid,
+        email: user.email,
+        role
+      };
+      setIsAuthenticate(userData);
+      console.log('userData final', userData);
+    });
+  };
+
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      setIsAuthenticate(user);
+      if (!user) {
+        setUserWithRole(user);
+      }
     } else {
       setIsAuthenticate(null);
     }
@@ -21,16 +42,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {isAuthenticate ? (
-          <Routes>
-            <Route exact path="orders" element={<Orders />} />
-            <Route exact path="kitchen" element={<Kitchen />} />
-          </Routes>
-        ) : (
-          <Routes>
-            <Route exact path="/" element={<Login />} />
-          </Routes>
-        )}
+        <Views isAuthenticate={isAuthenticate} />
       </Router>
     </div>
   );
