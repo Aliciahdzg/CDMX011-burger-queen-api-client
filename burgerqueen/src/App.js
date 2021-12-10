@@ -26,15 +26,12 @@ function App() {
         role
       };
       setIsAuthenticate(userData);
-      console.log('userData final', userData);
     });
   };
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      if (!user) {
-        setUserWithRole(user);
-      }
+      setUserWithRole(user);
     } else {
       setIsAuthenticate(null);
     }
