@@ -16,7 +16,7 @@ import OrdersReady from './OrdersReady';
 import './styles/Orders.scss';
 import './styles/Menu.scss';
 
-const Orders = ({ userData, userAuth, setUserAuth }) => {
+const Orders = ({ userData, setUserData }) => {
   const [breakfastMenu, setBreakfastMenu] = useState([]);
   const [lunchMenu, setLunchMenu] = useState([]);
 
@@ -100,8 +100,7 @@ const Orders = ({ userData, userAuth, setUserAuth }) => {
     <div className="orders-content">
       <Header
      userData={userData}
-     setUserAuth={setUserAuth}
-     userAuth={userAuth}
+     SetUserData={setUserData}
         today={today}
         setDate={setDate}
         time={time}

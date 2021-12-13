@@ -11,8 +11,7 @@ import Administrator from './components/Administrator';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
-  const [userData, setUserData] = useState({});
-  const [userAuth, setUserAuth] = useState(null);
+  const [userData, setUserData] = useState(null);
   const getRol = async (uid) => {
     const docuRef = doc(db, `users/${uid}`);
     const cipherDocu = await getDoc(docuRef);
@@ -20,26 +19,9 @@ function App() {
     return finalInfo;
   };
 
-  const setUserWithRole = (user) => {
-    getRol(user.uid).then((role) => {
-      const data = {
-        uid: user.uid,
-        email: user.email,
-        role
-      };
-      setUserData(data);
-      console.log('userData final', data);
-    });
-  };
-
   onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setUserAuth(user);
-      if (!userData) {
-        setUserWithRole(user);
-      }
-    } else {
-      setUserAuth(null);
+    if (!user) {
+      setUserData(null);
     }
   });
   return (
@@ -51,26 +33,27 @@ function App() {
             path="/orders"
             element={
               <PrivateRoute>
-                <Orders
-                  userData={userData}
-                  setUserAuth={setUserAuth}
-                  userAuth={userAuth}
-                />
+                <Orders userData={userData} />
               </PrivateRoute>
             }
           />
-          <Route exact path="/" element={<Login userData={userData} />} />
+          <Route
+            exact
+            path="/"
+            element={
+              <Login
+                userData={userData}
+                setUserData={setUserData}
+                getRol={getRol}
+              />
+            }
+          />
           <Route
             exact
             path="/kitchen"
             element={
               <PrivateRoute>
-                <Kitchen
-                  userData={userData}
-                  setUserAuth={setUserAuth}
-                  userAuth={userAuth}
-                  setUserData={setUserData}
-                />
+                <Kitchen userData={userData} setUserData={setUserData} />
               </PrivateRoute>
             }
           />

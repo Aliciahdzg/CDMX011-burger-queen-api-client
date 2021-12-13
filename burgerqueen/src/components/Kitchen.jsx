@@ -11,7 +11,7 @@ import Logo from '../assets/upper-icon.png';
 
 import './styles/Kitchen.scss';
 
-const Kitchen = ({ userAuth, setUserAuth }) => {
+const Kitchen = ({ userData, setUserData }) => {
   const [kitchenOrder, setKitchenOrder] = useState([]);
 
   // const [currentUser, setCurrentUser] = useState({});
@@ -82,8 +82,8 @@ const Kitchen = ({ userAuth, setUserAuth }) => {
         setDate={setDate}
         setTime={setTime}
         time={time}
-        userAuth={userAuth}
-        setUserAuth={setUserAuth}
+        userData={userData}
+        setUserData={setUserData}
       />
       <div className="kitchen-titles">
         <img src={Logo} alt="Logo" className="logo-kitchen" />

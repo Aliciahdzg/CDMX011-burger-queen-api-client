@@ -7,9 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import auth from '../firebase/firebaseConfig';
 
-const Header = ({ setDate, setTime, today, time, setUserAuth, userAuth }) => {
+const Header = ({ setDate, setTime, today, time, userData, setUserData }) => {
   const navigate = useNavigate();
-  const { email } = userAuth;
+  const { email, role } = userData;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -26,7 +26,7 @@ const Header = ({ setDate, setTime, today, time, setUserAuth, userAuth }) => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      setUserAuth(null);
+      setUserData(null);
       console.log('saliendo de app');
       navigate('/');
     } catch (error) {
@@ -37,10 +37,10 @@ const Header = ({ setDate, setTime, today, time, setUserAuth, userAuth }) => {
   return (
     <div className="header">
       <div className="current-user">
-        {email === 'meseros@burgerqueen.com' && (
+        {role === 'waiter' && (
           <Icon icon="vs:user-waiter" color="#f2884b" height="40" />
         )}
-        {email === 'cocina@burgerqueen.com' && (
+        {role === 'chef' && (
           <Icon icon="icon-park-outline:chef-hat" color="#f2884b" height="40" />
         )}
         <p> {email}</p>

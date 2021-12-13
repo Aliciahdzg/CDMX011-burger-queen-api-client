@@ -15,20 +15,31 @@ import FormLogin from './FormLogin';
 
 import './styles/Login.scss';
 
-const Login = () => {
+const Login = ({ getRol, setUserData }) => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async (email, password) => {
     try {
       const signIn = await signInWithEmailAndPassword(auth, email, password);
-      email === 'cocina@burgerqueen.com'
-        ? navigate('/kitchen')
-        : email === 'meseros@burgerqueen.com'
-        ? navigate('/orders')
-        : email === 'admin@burgerqueen.com'
-        ? navigate('/admin')
-        : navigate('/');
+
+      const retrievedRol = await getRol(auth.currentUser.uid);
+      const data = {
+        uid: auth.currentUser.uid,
+        email: auth.currentUser.email,
+        role: retrievedRol
+      };
+      setUserData(data);
+      console.log('userData final', data);
+      if (retrievedRol === 'waiter') {
+        navigate('orders');
+      } else if (retrievedRol === 'chef') {
+        navigate('kitchen');
+      } else if (retrievedRol === 'admin') {
+        navigate('admin');
+      } else {
+        navigate('/');
+      }
       console.log('im signIn', signIn);
       const user = auth.currentUser;
       if (user) {
