@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
-
 import auth, { db } from './firebase/firebaseConfig';
 
-import Views from './components/Views';
+import Orders from './components/Orders';
+import Kitchen from './components/Kitchen';
+import Login from './components/Login';
+import Administrator from './components/Administrator';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
-  const [isAuthenticate, setIsAuthenticate] = useState(null);
-
+  const [userData, setUserData] = useState({});
+  const [userAuth, setUserAuth] = useState(null);
   const getRol = async (uid) => {
     const docuRef = doc(db, `users/${uid}`);
     const cipherDocu = await getDoc(docuRef);
@@ -20,29 +22,68 @@ function App() {
 
   const setUserWithRole = (user) => {
     getRol(user.uid).then((role) => {
-      const userData = {
+      const data = {
         uid: user.uid,
         email: user.email,
         role
       };
-      setIsAuthenticate(userData);
-      console.log('userData final', userData);
+      setUserData(data);
+      console.log('userData final', data);
     });
   };
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      if (!user) {
+      setUserAuth(user);
+      if (!userData) {
         setUserWithRole(user);
       }
     } else {
-      setIsAuthenticate(null);
+      setUserAuth(null);
     }
   });
   return (
     <div className="App">
       <Router>
-        <Views isAuthenticate={isAuthenticate} />
+        <Routes>
+          <Route
+            exact
+            path="/orders"
+            element={
+              <PrivateRoute>
+                <Orders
+                  userData={userData}
+                  setUserAuth={setUserAuth}
+                  userAuth={userAuth}
+                />
+              </PrivateRoute>
+            }
+          />
+          <Route exact path="/" element={<Login userData={userData} />} />
+          <Route
+            exact
+            path="/kitchen"
+            element={
+              <PrivateRoute>
+                <Kitchen
+                  userData={userData}
+                  setUserAuth={setUserAuth}
+                  userAuth={userAuth}
+                  setUserData={setUserData}
+                />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            exact
+            path="/admin"
+            element={
+              <PrivateRoute>
+                <Administrator />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
       </Router>
     </div>
   );

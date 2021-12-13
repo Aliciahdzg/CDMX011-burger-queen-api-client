@@ -2,17 +2,15 @@
 /* eslint-disable react/prop-types */
 import './styles/Header.scss';
 import React, { useEffect } from 'react';
+import { signOut } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
+import auth from '../firebase/firebaseConfig';
 
-const Header = ({
-  isAuthenticate,
-  handleLogout,
-  setDate,
-  setTime,
-  today,
-  time
-}) => {
-  const { email } = isAuthenticate;
+const Header = ({ setDate, setTime, today, time, setUserAuth, userAuth }) => {
+  const navigate = useNavigate();
+  const { email } = userAuth;
+
   useEffect(() => {
     const timer = setInterval(() => {
       // Creates an interval which will update the current data every minute
@@ -25,6 +23,17 @@ const Header = ({
     };
   }, []);
 
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      setUserAuth(null);
+      console.log('saliendo de app');
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="header">
       <div className="current-user">
@@ -34,7 +43,7 @@ const Header = ({
         {email === 'cocina@burgerqueen.com' && (
           <Icon icon="icon-park-outline:chef-hat" color="#f2884b" height="40" />
         )}
-        <p>{email}</p>
+        <p> {email}</p>
       </div>
       <div className="current-time">
         <p> {today.toLocaleDateString()}</p>

@@ -3,18 +3,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
 import { helpHttp } from '../helpers/helpHttp';
 
 import KitchenOrder from './KitchenOrder';
 import Header from './Header';
 import Logo from '../assets/upper-icon.png';
 
-import auth from '../firebase/firebaseConfig';
 import './styles/Kitchen.scss';
 
-const Kitchen = ({ isAuthenticate }) => {
+const Kitchen = ({ userAuth, setUserAuth }) => {
   const [kitchenOrder, setKitchenOrder] = useState([]);
 
   // const [currentUser, setCurrentUser] = useState({});
@@ -22,10 +19,8 @@ const Kitchen = ({ isAuthenticate }) => {
   const [today, setDate] = useState(new Date());
   const [time, setTime] = useState(new Date());
 
-  const navigate = useNavigate();
-
   const api = helpHttp();
-  const urlK = 'http://localhost:5000/kitchen';
+  const urlK = 'http://localhost:3001/kitchen';
 
   useEffect(() => {
     const endpoint = `${urlK}?status=pending`;
@@ -57,16 +52,6 @@ const Kitchen = ({ isAuthenticate }) => {
     });
   };
 
-  const handleLogout = () => {
-    signOut(auth)
-      .then(() => {
-        navigate('/');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
   const removeOrder = (item) => {
     const select = kitchenOrder.filter((x) => x.id !== item.id);
     setKitchenOrder(select);
@@ -93,12 +78,12 @@ const Kitchen = ({ isAuthenticate }) => {
   return (
     <div className="kitchen-content">
       <Header
-        isAuthenticate={isAuthenticate}
-        handleLogout={handleLogout}
         today={today}
         setDate={setDate}
         setTime={setTime}
         time={time}
+        userAuth={userAuth}
+        setUserAuth={setUserAuth}
       />
       <div className="kitchen-titles">
         <img src={Logo} alt="Logo" className="logo-kitchen" />

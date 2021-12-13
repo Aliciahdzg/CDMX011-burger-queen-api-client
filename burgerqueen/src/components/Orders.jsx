@@ -3,11 +3,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
-import { signOut } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
-import { helpHttp } from '../helpers/helpHttp';
 
-import auth from '../firebase/firebaseConfig';
+import { helpHttp } from '../helpers/helpHttp';
 
 import Logo from '../assets/upper-icon.png';
 import Breackfast from './Breackfast';
@@ -19,7 +16,7 @@ import OrdersReady from './OrdersReady';
 import './styles/Orders.scss';
 import './styles/Menu.scss';
 
-const Orders = ({ isAuthenticate }) => {
+const Orders = ({ userData, userAuth, setUserAuth }) => {
   const [breakfastMenu, setBreakfastMenu] = useState([]);
   const [lunchMenu, setLunchMenu] = useState([]);
 
@@ -32,17 +29,11 @@ const Orders = ({ isAuthenticate }) => {
   const [today, setDate] = useState(new Date());
   const [time, setTime] = useState(new Date());
 
-  const navigate = useNavigate();
-
   const api = helpHttp();
 
-  const urlB = 'http://localhost:5000/breakfastMenu';
-  const urlL = 'http://localhost:5000/lunchMenu';
-  const urlK = 'http://localhost:5000/kitchen';
-
-  useEffect(() => {
-    localStorage.setItem('orderList', JSON.stringify(resumItems));
-  }, [resumItems]);
+  const urlB = 'http://localhost:3001/breakfastMenu';
+  const urlL = 'http://localhost:3001/lunchMenu';
+  const urlK = 'http://localhost:3001/kitchen';
 
   useEffect(() => {
     api.get(urlB).then((res) => {
@@ -104,21 +95,13 @@ const Orders = ({ isAuthenticate }) => {
     setResumItems(select);
   };
 
-  const handleLogout = () => {
-    signOut(auth)
-      .then(() => {
-        navigate('/');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
 
   return (
     <div className="orders-content">
       <Header
-        isAuthenticate={isAuthenticate}
-        handleLogout={handleLogout}
+     userData={userData}
+     setUserAuth={setUserAuth}
+     userAuth={userAuth}
         today={today}
         setDate={setDate}
         time={time}
@@ -179,7 +162,7 @@ const Orders = ({ isAuthenticate }) => {
       </div>
       <div className="div-logo-orders">
         <img src={Logo} alt="Logo" className="logo-orders-img" />
-        <OrdersReady time={time} setTime={setTime} />
+         <OrdersReady time={time} setTime={setTime} /> 
       </div>
     </div>
   );
