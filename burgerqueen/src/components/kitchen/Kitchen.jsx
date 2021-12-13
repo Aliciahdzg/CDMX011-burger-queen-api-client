@@ -2,22 +2,22 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
+
 import Swal from 'sweetalert2';
+
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
-import { helpHttp } from '../helpers/helpHttp';
+import { helpHttp } from '../../helpers/helpHttp';
 
 import KitchenOrder from './KitchenOrder';
-import Header from './Header';
-import Logo from '../assets/upper-icon.png';
+import Header from '../Header';
+import Logo from '../../assets/upper-icon.png';
 
-import auth from '../firebase/firebaseConfig';
-import './styles/Kitchen.scss';
+import auth from '../../firebase/firebaseConfig';
+import '../styles/Kitchen.scss';
 
-const Kitchen = ({ isAuthenticate }) => {
+const Kitchen = ({ isAuthenticate, setIsAuthenticate }) => {
   const [kitchenOrder, setKitchenOrder] = useState([]);
-
-  // const [currentUser, setCurrentUser] = useState({});
 
   const [today, setDate] = useState(new Date());
   const [time, setTime] = useState(new Date());
@@ -38,12 +38,6 @@ const Kitchen = ({ isAuthenticate }) => {
     });
   }, []);
 
-  /* onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setCurrentUser(user);
-    }
-  }); */
-
   const updateData = (data) => {
     const endpoint = `${urlK}/${data.id}`;
     const options = {
@@ -60,6 +54,7 @@ const Kitchen = ({ isAuthenticate }) => {
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
+        setIsAuthenticate(null);
         navigate('/');
       })
       .catch((error) => {

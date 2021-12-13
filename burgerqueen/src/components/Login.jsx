@@ -12,7 +12,7 @@ import FormLogin from './FormLogin';
 
 import './styles/Login.scss';
 
-const Login = () => {
+const Login = ({ getRol, setIsAuthenticate }) => {
   const [error, setError] = useState('');
 
   const navigate = useNavigate();
@@ -20,10 +20,19 @@ const Login = () => {
   const handleLogin = async (email, password) => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      if (email === 'meseros@burgerqueen.com') {
+      const retrievedRol = await getRol(auth.currentUser.uid);
+      const userData = {
+        uid: auth.currentUser.uid,
+        email: auth.currentUser.email,
+        retrievedRol
+      };
+      setIsAuthenticate(userData);
+      if (retrievedRol === 'waiter') {
         navigate('orders');
-      } else if (email === 'cocina@burgerqueen.com') {
+      } else if (retrievedRol === 'chef') {
         navigate('kitchen');
+      } else if (retrievedRol === 'admin') {
+        navigate('admin');
       }
     } catch (error) {
       setError('Contraseña y/o correo inválidos');

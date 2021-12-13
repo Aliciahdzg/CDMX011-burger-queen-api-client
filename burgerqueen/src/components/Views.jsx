@@ -3,33 +3,54 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import Login from './Login';
-import Orders from './Orders';
-import Kitchen from './Kitchen';
-import Administrator from './Administrator';
+import Orders from './orders/Orders';
+import Kitchen from './kitchen/Kitchen';
+import Administrator from './admin/Administrator';
 
-const Views = ({ isAuthenticate }) => (
+const Views = ({ isAuthenticate, setIsAuthenticate, getRol }) => (
   <div>
     {isAuthenticate ? (
       <Routes>
         <Route
           exact
           path="orders"
-          element={<Orders isAuthenticate={isAuthenticate} />}
+          element={
+            <Orders
+              isAuthenticate={isAuthenticate}
+              setIsAuthenticate={setIsAuthenticate}
+            />
+          }
         />
         <Route
           exact
           path="kitchen"
-          element={<Kitchen isAuthenticate={isAuthenticate} />}
+          element={
+            <Kitchen
+              isAuthenticate={isAuthenticate}
+              setIsAuthenticate={setIsAuthenticate}
+            />
+          }
         />
         <Route
           exact
           path="admin"
-          element={<Administrator isAuthenticate={isAuthenticate} />}
+          element={
+            <Administrator
+              isAuthenticate={isAuthenticate}
+              setIsAuthenticate={setIsAuthenticate}
+            />
+          }
         />
       </Routes>
     ) : (
       <Routes>
-        <Route exact path="/" element={<Login />} />
+        <Route
+          exact
+          path="/"
+          element={
+            <Login getRol={getRol} setIsAuthenticate={setIsAuthenticate} />
+          }
+        />
       </Routes>
     )}
   </div>

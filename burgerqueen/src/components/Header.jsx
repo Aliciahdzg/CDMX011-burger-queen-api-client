@@ -1,8 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
-import './styles/Header.scss';
 import React, { useEffect } from 'react';
+
 import { Icon } from '@iconify/react';
+
+import './styles/Header.scss';
 
 const Header = ({
   isAuthenticate,

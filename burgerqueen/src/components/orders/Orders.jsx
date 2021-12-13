@@ -5,21 +5,21 @@
 import React, { useState, useEffect } from 'react';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { helpHttp } from '../helpers/helpHttp';
+import { helpHttp } from '../../helpers/helpHttp';
 
-import auth from '../firebase/firebaseConfig';
+import auth from '../../firebase/firebaseConfig';
 
-import Logo from '../assets/upper-icon.png';
-import Breackfast from './Breackfast';
-import Header from './Header';
-import Lunch from './Lunch';
-import Resum from './Resum';
+import Logo from '../../assets/upper-icon.png';
+import Breackfast from '../Breackfast';
+import Header from '../Header';
+import Lunch from '../Lunch';
+import Resum from '../Resum';
 import OrdersReady from './OrdersReady';
 
-import './styles/Orders.scss';
-import './styles/Menu.scss';
+import '../styles/Orders.scss';
+import '../styles/Menu.scss';
 
-const Orders = ({ isAuthenticate }) => {
+const Orders = ({ isAuthenticate, setIsAuthenticate }) => {
   const [breakfastMenu, setBreakfastMenu] = useState([]);
   const [lunchMenu, setLunchMenu] = useState([]);
 
@@ -107,6 +107,7 @@ const Orders = ({ isAuthenticate }) => {
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
+        setIsAuthenticate(null);
         navigate('/');
       })
       .catch((error) => {

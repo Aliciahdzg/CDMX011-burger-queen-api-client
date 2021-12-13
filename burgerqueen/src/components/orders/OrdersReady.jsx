@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
-import { helpHttp } from '../helpers/helpHttp';
+import { helpHttp } from '../../helpers/helpHttp';
 
 import OrderReadyItem from './OrderReadyItem';
 
-import './styles/OrdersReady.scss';
+import '../styles/OrdersReady.scss';
 
 const OrdersReady = () => {
   const [orderReady, setOrderReady] = useState([]);

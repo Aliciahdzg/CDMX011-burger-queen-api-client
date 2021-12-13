@@ -18,7 +18,7 @@ function App() {
     return finalInfo;
   };
 
-  const setUserWithRole = (user) => {
+  /* const setUserWithRole = (user) => {
     getRol(user.uid).then((role) => {
       const userData = {
         uid: user.uid,
@@ -28,21 +28,21 @@ function App() {
       setIsAuthenticate(userData);
       console.log('userData final', userData);
     });
-  };
+  }; */
 
   onAuthStateChanged(auth, (user) => {
-    if (user) {
-      if (!user) {
-        setUserWithRole(user);
-      }
-    } else {
+    if (!user) {
       setIsAuthenticate(null);
     }
   });
   return (
     <div className="App">
       <Router>
-        <Views isAuthenticate={isAuthenticate} />
+        <Views
+          isAuthenticate={isAuthenticate}
+          getRol={getRol}
+          setIsAuthenticate={setIsAuthenticate}
+        />
       </Router>
     </div>
   );
