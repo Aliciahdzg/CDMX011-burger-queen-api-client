@@ -1,9 +1,12 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 /* eslint-disable react/prop-types */
-import './styles/Resum.scss';
-import { Icon } from '@iconify/react';
 import React, { useState, useEffect } from 'react';
+
+import { Icon } from '@iconify/react';
+
 import Swal from 'sweetalert2';
+
+import './styles/Resum.scss';
 
 const Resum = ({
   resumItems,

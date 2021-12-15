@@ -26,9 +26,6 @@ const Orders = ({ userData, setUserData }) => {
 
   const [activeMenu, setActiveMenu] = useState('breakfast');
 
-  const [today, setDate] = useState(new Date());
-  const [time, setTime] = useState(new Date());
-
   const api = helpHttp();
 
   const urlB = 'http://localhost:3001/breakfastMenu';
@@ -58,7 +55,7 @@ const Orders = ({ userData, setUserData }) => {
     status: 'pending',
     order: {
       items: resumItems,
-      timeIn: today
+      timeIn: new Date()
     }
   };
 
@@ -95,17 +92,9 @@ const Orders = ({ userData, setUserData }) => {
     setResumItems(select);
   };
 
-
   return (
     <div className="orders-content">
-      <Header
-     userData={userData}
-     SetUserData={setUserData}
-        today={today}
-        setDate={setDate}
-        time={time}
-        setTime={setTime}
-      />
+      <Header userData={userData} SetUserData={setUserData} />
       <div className="div-resum-menu">
         <div className="resum">
           <Resum
@@ -161,7 +150,7 @@ const Orders = ({ userData, setUserData }) => {
       </div>
       <div className="div-logo-orders">
         <img src={Logo} alt="Logo" className="logo-orders-img" />
-         <OrdersReady time={time} setTime={setTime} /> 
+        <OrdersReady />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 /* eslint-disable no-shadow */
 /* eslint-disable react/prop-types */
 import React from 'react';
+
 import { Icon } from '@iconify/react';
 
 const BreackfastItem = ({ item, addItem, removeItem }) => {

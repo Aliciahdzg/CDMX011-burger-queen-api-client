@@ -62,7 +62,7 @@ function App() {
             path="/admin"
             element={
               <PrivateRoute>
-                <Administrator />
+                <Administrator userData={userData} />
               </PrivateRoute>
             }
           />
