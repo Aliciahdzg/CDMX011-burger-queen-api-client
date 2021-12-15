@@ -14,11 +14,6 @@ import './styles/Kitchen.scss';
 const Kitchen = ({ userData, setUserData }) => {
   const [kitchenOrder, setKitchenOrder] = useState([]);
 
-  // const [currentUser, setCurrentUser] = useState({});
-
-  const [today, setDate] = useState(new Date());
-  const [time, setTime] = useState(new Date());
-
   const api = helpHttp();
   const urlK = 'http://localhost:3001/kitchen';
 
@@ -32,12 +27,6 @@ const Kitchen = ({ userData, setUserData }) => {
       }
     });
   }, []);
-
-  /* onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setCurrentUser(user);
-    }
-  }); */
 
   const updateData = (data) => {
     const endpoint = `${urlK}/${data.id}`;
@@ -77,14 +66,7 @@ const Kitchen = ({ userData, setUserData }) => {
 
   return (
     <div className="kitchen-content">
-      <Header
-        today={today}
-        setDate={setDate}
-        setTime={setTime}
-        time={time}
-        userData={userData}
-        setUserData={setUserData}
-      />
+      <Header userData={userData} setUserData={setUserData} />
       <div className="kitchen-titles">
         <img src={Logo} alt="Logo" className="logo-kitchen" />
         <h1>Órdenes en cocina</h1>

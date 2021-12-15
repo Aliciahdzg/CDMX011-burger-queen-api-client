@@ -4,7 +4,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-shadow */
 import React, { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import {
+  signInWithEmailAndPassword,
+  setPersistence,
+  browserSessionPersistence
+} from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
 import { doc, getDoc } from 'firebase/firestore';
@@ -18,6 +22,14 @@ import './styles/Login.scss';
 const Login = ({ getRol, setUserData }) => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  const handlePersistance = async () => {
+    try {
+      await setPersistence(auth, browserSessionPersistence);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleLogin = async (email, password) => {
     try {
@@ -53,7 +65,11 @@ const Login = ({ getRol, setUserData }) => {
   return (
     <div className="login-container">
       <img src={Logo} alt="Logo" className="logo" />
-      <FormLogin handleLogin={handleLogin} error={error} />
+      <FormLogin
+        handleLogin={handleLogin}
+        handlePersistance={handlePersistance}
+        error={error}
+      />
     </div>
   );
 };

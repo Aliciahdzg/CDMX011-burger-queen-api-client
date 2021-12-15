@@ -1,14 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import './styles/Header.scss';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import auth from '../firebase/firebaseConfig';
 
-const Header = ({ setDate, setTime, today, time, userData, setUserData }) => {
+const Header = ({ userData, setUserData }) => {
   const navigate = useNavigate();
+
+  const [today, setDate] = useState(new Date());
+  const [time, setTime] = useState(new Date());
+
   const { email, role } = userData;
 
   useEffect(() => {
@@ -42,6 +46,9 @@ const Header = ({ setDate, setTime, today, time, userData, setUserData }) => {
         )}
         {role === 'chef' && (
           <Icon icon="icon-park-outline:chef-hat" color="#f2884b" height="40" />
+        )}
+        {role === 'admin' && (
+          <Icon icon="wpf:administrator" color="#f2884b" height="40" />
         )}
         <p> {email}</p>
       </div>
