@@ -10,9 +10,7 @@ import {
   browserSessionPersistence
 } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-
-import { doc, getDoc } from 'firebase/firestore';
-import auth, { db } from '../firebase/firebaseConfig';
+import auth from '../firebase/firebaseConfig';
 
 import Logo from '../assets/logo.png';
 import FormLogin from './FormLogin';
@@ -22,14 +20,6 @@ import './styles/Login.scss';
 const Login = ({ getRol, setUserData }) => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
-
-  const handlePersistance = async () => {
-    try {
-      await setPersistence(auth, browserSessionPersistence);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const handleLogin = async (email, password) => {
     try {
@@ -65,11 +55,7 @@ const Login = ({ getRol, setUserData }) => {
   return (
     <div className="login-container">
       <img src={Logo} alt="Logo" className="logo" />
-      <FormLogin
-        handleLogin={handleLogin}
-        handlePersistance={handlePersistance}
-        error={error}
-      />
+      <FormLogin handleLogin={handleLogin} error={error} />
     </div>
   );
 };

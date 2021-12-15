@@ -5,7 +5,7 @@ import { Icon } from '@iconify/react';
 
 import './styles/Login.scss';
 
-const FormLogin = ({ handleLogin, error, handlePersistance }) => {
+const FormLogin = ({ handleLogin, error }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -45,7 +45,6 @@ const FormLogin = ({ handleLogin, error, handlePersistance }) => {
         className="login-btn"
         onClick={() => {
           handleLogin(email, password);
-          handlePersistance();
         }}
       >
         Iniciar Sesión

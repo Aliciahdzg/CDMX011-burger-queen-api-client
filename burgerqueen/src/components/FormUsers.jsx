@@ -1,11 +1,35 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
+import Select from 'react-select';
+
+import './styles/Users.scss';
 
 const FormUsers = ({ handleRegister }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [rol, setRol] = useState('');
+  const options = [
+    { value: 'waiter', label: 'Mesero' },
+    { value: 'chef', label: 'Cocina' },
+    { value: 'admin', label: 'Administrador' }
+  ];
+
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      borderBottom: '1px solid orange',
+      color: state.isSelected ? 'red' : 'blue',
+      width: 173
+    }),
+    singleValue: (provided, state) => {
+      const opacity = state.isDisabled ? 0.5 : 1;
+      const transition = 'opacity 300ms';
+
+      return { ...provided, opacity, transition };
+    }
+  };
   return (
     <div className="users-form">
       <form>
@@ -30,18 +54,17 @@ const FormUsers = ({ handleRegister }) => {
             setConfirmPassword(e.target.value);
           }}
         />
-        <select>
-          <option hidden selected>
-            Selecciona Rol
-          </option>
-          <option value="waiter">Mesero</option>
-          <option value="chef">Cocina</option>
-          <option value="admin">Administrador</option>
-        </select>
+        <Select
+          options={options}
+          styles={customStyles}
+          onChange={(e) => {
+            setRol(e.value);
+          }}
+        />
         <button
           type="button"
           onClick={() => {
-            handleRegister(email, password, confirmPassword);
+            handleRegister(email, password, confirmPassword, rol);
           }}
         >
           <Icon
