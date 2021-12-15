@@ -65,201 +65,6 @@
   ],
   "kitchen": [
     {
-      "client": "test",
-      "status": "closed",
-      "order": {
-        "items": [
-          {
-            "id": 1,
-            "name": "Café americano",
-            "price": 5,
-            "qty": 1
-          }
-        ],
-        "timeIn": "2021-12-06T19:48:09.090Z"
-      },
-      "id": 1
-    },
-    {
-      "client": "de",
-      "status": "closed",
-      "order": {
-        "items": [
-          {
-            "id": 1,
-            "name": "Café americano",
-            "price": 5,
-            "qty": 3
-          },
-          {
-            "id": 3,
-            "name": "Sandwich de jamón y queso",
-            "price": 10,
-            "qty": 1
-          },
-          {
-            "id": 2,
-            "name": "café con leche",
-            "price": 7,
-            "qty": 1
-          }
-        ],
-        "timeIn": "2021-12-06T19:50:11.289Z"
-      },
-      "id": 2,
-      "salida": "09:57:35"
-    },
-    {
-      "client": "k",
-      "status": "closed",
-      "order": {
-        "items": [
-          {
-            "id": 1,
-            "name": "Café americano",
-            "price": 5,
-            "qty": 1
-          }
-        ],
-        "timeIn": "2021-12-06T19:50:21.851Z"
-      },
-      "id": 3,
-      "salida": "14:19:29"
-    },
-    {
-      "client": "k",
-      "status": "closed",
-      "order": {
-        "items": [
-          {
-            "id": 1,
-            "name": "Café americano",
-            "price": 5,
-            "qty": 1
-          }
-        ],
-        "timeIn": "2021-12-06T19:50:34.664Z"
-      },
-      "id": 4,
-      "salida": "14:21:04"
-    },
-    {
-      "client": "m",
-      "status": "closed",
-      "order": {
-        "items": [
-          {
-            "id": 1,
-            "name": "Café americano",
-            "price": 5,
-            "qty": 3
-          }
-        ],
-        "timeIn": "2021-12-06T19:50:47.696Z"
-      },
-      "id": 5
-    },
-    {
-      "client": "ll",
-      "status": "closed",
-      "order": {
-        "items": [
-          {
-            "id": 2,
-            "name": "café con leche",
-            "price": 7,
-            "qty": 2
-          }
-        ],
-        "timeIn": "2021-12-06T19:51:13.698Z"
-      },
-      "id": 6,
-      "salida": "10:06:09"
-    },
-    {
-      "client": "dd",
-      "status": "closed",
-      "order": {
-        "items": [
-          {
-            "id": 1,
-            "name": "Café americano",
-            "price": 5,
-            "qty": 3
-          }
-        ],
-        "timeIn": "2021-12-06T19:51:20.697Z"
-      },
-      "id": 7
-    },
-    {
-      "client": "km",
-      "status": "closed",
-      "order": {
-        "items": [
-          {
-            "id": 3,
-            "name": "Sandwich de jamón y queso",
-            "price": 10,
-            "qty": 2
-          }
-        ],
-        "timeIn": "2021-12-06T19:51:27.697Z"
-      },
-      "id": 8
-    },
-    {
-      "client": "Raul",
-      "status": "closed",
-      "order": {
-        "items": [
-          {
-            "id": 3,
-            "name": "Sandwich de jamón y queso",
-            "price": 10,
-            "qty": 1
-          },
-          {
-            "id": 4,
-            "name": "Jugo de frutas natural",
-            "price": 7,
-            "qty": 1
-          },
-          {
-            "id": 9,
-            "name": "Agua 500ml",
-            "price": 5,
-            "qty": 2
-          },
-          {
-            "id": 10,
-            "name": "Agua 750ml",
-            "price": 7,
-            "qty": 1
-          }
-        ],
-        "timeIn": "2021-12-07T15:56:42.355Z"
-      },
-      "id": 9,
-      "salida": "09:57:49"
-    },
-    {
-      "client": "KK",
-      "status": "closed",
-      "order": {
-        "items": [
-          {
-            "id": 1,
-            "name": "Café americano",
-            "price": 5,
-            "qty": 1
-          }
-        ],
-        "timeIn": "2021-12-07T19:36:58.632Z"
-      },
-      "id": 10
-    },
-    {
       "client": "claudia",
       "status": "closed",
       "order": {
@@ -282,7 +87,7 @@
       "id": 11
     },
     {
-      "client": "Alicia",
+      "client": "ay dios",
       "status": "done",
       "order": {
         "items": [
@@ -290,222 +95,44 @@
             "id": 1,
             "name": "Café americano",
             "price": 5,
-            "qty": 1
-          },
-          {
-            "id": 2,
-            "name": "café con leche",
-            "price": 7,
-            "qty": 1
-          },
-          {
-            "id": 3,
-            "name": "Sandwich de jamón y queso",
-            "price": 10,
-            "qty": 1
-          },
-          {
-            "id": 4,
-            "name": "Jugo de frutas natural",
-            "price": 7,
-            "qty": 1
-          },
-          {
-            "id": 5,
-            "name": "Hamburguesa simple",
-            "price": 10,
-            "qty": 1
-          },
-          {
-            "id": 6,
-            "name": "Hamburguesa doble",
-            "price": 15,
-            "qty": 1
-          },
-          {
-            "id": 7,
-            "name": "Papas fritas",
-            "price": 5,
-            "qty": 1
-          },
-          {
-            "id": 8,
-            "name": "Aros de cebolla",
-            "price": 5,
-            "qty": 1
-          },
-          {
-            "id": 9,
-            "name": "Agua 500ml",
-            "price": 5,
-            "qty": 1
+            "qty": 3
           }
         ],
-        "timeIn": "2021-12-07T21:07:16.115Z"
+        "timeIn": "2021-12-10T21:58:31.883Z"
       },
       "id": 12
     },
     {
-      "client": "Dani",
+      "client": "badass",
       "status": "done",
       "order": {
         "items": [
           {
-            "id": 5,
-            "name": "Hamburguesa simple",
-            "price": 10,
-            "qty": 1
-          },
-          {
-            "id": 6,
-            "name": "Hamburguesa doble",
-            "price": 15,
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
             "qty": 1
           }
         ],
-        "timeIn": "2021-12-07T21:07:28.115Z"
+        "timeIn": "2021-12-10T22:34:41.592Z"
       },
       "id": 13
     },
     {
-      "client": "Raul",
-      "status": "done",
+      "client": "test",
+      "status": "pending",
       "order": {
         "items": [
           {
-            "id": 5,
-            "name": "Hamburguesa simple",
-            "price": 10,
+            "id": 1,
+            "name": "Café americano",
+            "price": 5,
             "qty": 1
           }
         ],
-        "timeIn": "2021-12-07T21:07:36.117Z"
+        "timeIn": "2021-12-13T17:44:21.760Z"
       },
       "id": 14
-    },
-    {
-      "client": "Carlos",
-      "status": "done",
-      "order": {
-        "items": [
-          {
-            "id": 1,
-            "name": "Café americano",
-            "price": 5,
-            "qty": 2
-          },
-          {
-            "id": 8,
-            "name": "Aros de cebolla",
-            "price": 5,
-            "qty": 1
-          }
-        ],
-        "timeIn": "2021-12-07T22:53:33.791Z"
-      },
-      "id": 15
-    },
-    {
-      "client": "Sarah",
-      "status": "done",
-      "order": {
-        "items": [
-          {
-            "id": 5,
-            "name": "Hamburguesa simple",
-            "price": 10,
-            "qty": 1
-          },
-          {
-            "id": 8,
-            "name": "Aros de cebolla",
-            "price": 5,
-            "qty": 1
-          }
-        ],
-        "timeIn": "2021-12-07T22:53:52.790Z"
-      },
-      "id": 16
-    },
-    {
-      "client": "hola",
-      "status": "done",
-      "order": {
-        "items": [
-          {
-            "id": 1,
-            "name": "Café americano",
-            "price": 5,
-            "qty": 1
-          }
-        ],
-        "timeIn": "2021-12-07T23:13:32.160Z"
-      },
-      "id": 17
-    },
-    {
-      "client": "test1",
-      "status": "done",
-      "order": {
-        "items": [
-          {
-            "id": 1,
-            "name": "Café americano",
-            "price": 5,
-            "qty": 1
-          }
-        ],
-        "timeIn": "2021-12-07T23:15:41.750Z"
-      },
-      "id": 18
-    },
-    {
-      "client": "test 2",
-      "status": "done",
-      "order": {
-        "items": [
-          {
-            "id": 1,
-            "name": "Café americano",
-            "price": 5,
-            "qty": 1
-          }
-        ],
-        "timeIn": "2021-12-07T23:15:48.751Z"
-      },
-      "id": 19
-    },
-    {
-      "client": "test 4",
-      "status": "done",
-      "order": {
-        "items": [
-          {
-            "id": 1,
-            "name": "Café americano",
-            "price": 5,
-            "qty": 1
-          }
-        ],
-        "timeIn": "2021-12-07T23:15:53.751Z"
-      },
-      "id": 20
-    },
-    {
-      "client": "test 5",
-      "status": "done",
-      "order": {
-        "items": [
-          {
-            "id": 1,
-            "name": "Café americano",
-            "price": 5,
-            "qty": 1
-          }
-        ],
-        "timeIn": "2021-12-07T23:15:59.752Z"
-      },
-      "id": 21
     }
   ]
 }

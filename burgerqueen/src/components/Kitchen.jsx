@@ -1,30 +1,21 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-param-reassign */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
-import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { helpHttp } from '../helpers/helpHttp';
 
 import KitchenOrder from './KitchenOrder';
 import Header from './Header';
 import Logo from '../assets/upper-icon.png';
 
-import auth from '../firebase/firebaseConfig';
 import './styles/Kitchen.scss';
 
-const Kitchen = () => {
+const Kitchen = ({ userData, setUserData }) => {
   const [kitchenOrder, setKitchenOrder] = useState([]);
 
-  const [currentUser, setCurrentUser] = useState({});
-
-  const [today, setDate] = useState(new Date());
-  const [time, setTime] = useState(new Date());
-
-  const navigate = useNavigate();
-
   const api = helpHttp();
-  const urlK = 'http://localhost:5000/kitchen';
+  const urlK = 'http://localhost:3001/kitchen';
 
   useEffect(() => {
     const endpoint = `${urlK}?status=pending`;
@@ -37,12 +28,6 @@ const Kitchen = () => {
     });
   }, []);
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setCurrentUser(user);
-    }
-  });
-
   const updateData = (data) => {
     const endpoint = `${urlK}/${data.id}`;
     const options = {
@@ -54,16 +39,6 @@ const Kitchen = () => {
         console.log(res.statusText);
       }
     });
-  };
-
-  const handleLogout = () => {
-    signOut(auth)
-      .then(() => {
-        navigate('/');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   };
 
   const removeOrder = (item) => {
@@ -91,14 +66,7 @@ const Kitchen = () => {
 
   return (
     <div className="kitchen-content">
-      <Header
-        currentUser={currentUser}
-        handleLogout={handleLogout}
-        today={today}
-        setDate={setDate}
-        setTime={setTime}
-        time={time}
-      />
+      <Header userData={userData} setUserData={setUserData} />
       <div className="kitchen-titles">
         <img src={Logo} alt="Logo" className="logo-kitchen" />
         <h1>Órdenes en cocina</h1>

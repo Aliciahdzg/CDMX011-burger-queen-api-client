@@ -3,11 +3,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
-import { signOut, onAuthStateChanged } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
-import { helpHttp } from '../helpers/helpHttp';
 
-import auth from '../firebase/firebaseConfig';
+import { helpHttp } from '../helpers/helpHttp';
 
 import Logo from '../assets/upper-icon.png';
 import Breackfast from './Breackfast';
@@ -19,32 +16,21 @@ import OrdersReady from './OrdersReady';
 import './styles/Orders.scss';
 import './styles/Menu.scss';
 
-const Orders = () => {
+const Orders = ({ userData, setUserData }) => {
   const [breakfastMenu, setBreakfastMenu] = useState([]);
   const [lunchMenu, setLunchMenu] = useState([]);
 
   const [client, setClient] = useState('');
 
-  const [currentUser, setCurrentUser] = useState({});
-
   const [resumItems, setResumItems] = useState([]);
 
   const [activeMenu, setActiveMenu] = useState('breakfast');
 
-  const [today, setDate] = useState(new Date());
-  const [time, setTime] = useState(new Date());
-
-  const navigate = useNavigate();
-
   const api = helpHttp();
 
-  const urlB = 'http://localhost:5000/breakfastMenu';
-  const urlL = 'http://localhost:5000/lunchMenu';
-  const urlK = 'http://localhost:5000/kitchen';
-
-  useEffect(() => {
-    localStorage.setItem('orderList', JSON.stringify(resumItems));
-  }, [resumItems]);
+  const urlB = 'http://localhost:3001/breakfastMenu';
+  const urlL = 'http://localhost:3001/lunchMenu';
+  const urlK = 'http://localhost:3001/kitchen';
 
   useEffect(() => {
     api.get(urlB).then((res) => {
@@ -69,7 +55,7 @@ const Orders = () => {
     status: 'pending',
     order: {
       items: resumItems,
-      timeIn: today
+      timeIn: new Date()
     }
   };
 
@@ -106,31 +92,13 @@ const Orders = () => {
     setResumItems(select);
   };
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setCurrentUser(user);
-    }
-  });
-
-  const handleLogout = () => {
-    signOut(auth)
-      .then(() => {
-        navigate('/');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
 
   return (
     <div className="orders-content">
       <Header
-        currentUser={currentUser}
-        handleLogout={handleLogout}
-        today={today}
-        setDate={setDate}
-        time={time}
-        setTime={setTime}
+     userData={userData}
+     SetUserData={setUserData}
+       
       />
       <div className="div-resum-menu">
         <div className="resum">
@@ -187,7 +155,7 @@ const Orders = () => {
       </div>
       <div className="div-logo-orders">
         <img src={Logo} alt="Logo" className="logo-orders-img" />
-        <OrdersReady time={time} setTime={setTime} />
+         <OrdersReady /> 
       </div>
     </div>
   );
