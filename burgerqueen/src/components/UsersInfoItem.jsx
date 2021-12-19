@@ -4,11 +4,11 @@ import React from 'react';
 function UsersInfoItem({ user }) {
   const { id, role, email } = user;
   return (
-    <div>
-      <p>{id}</p>
-      <p>{role}</p>
-      <p>{email}</p>
-    </div>
+    <tr>
+      <td>{id}</td>
+      <td>{role}</td>
+      <td>{email}</td>
+    </tr>
   );
 }
 

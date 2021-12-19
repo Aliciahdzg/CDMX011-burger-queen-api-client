@@ -25,7 +25,7 @@ const Users = () => {
           password
         ).then((usuarioFirebase) => usuarioFirebase);
         const docuRef = doc(db, `users/${infoUsuario.user.uid}`);
-        setDoc(docuRef, { correo: email, role: rol });
+        setDoc(docuRef, { email, role: rol });
         console.log('me registreee');
         Swal.fire({
           title: 'Registro Exitoso!',
