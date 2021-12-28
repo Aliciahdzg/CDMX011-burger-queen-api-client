@@ -1,0 +1,154 @@
+@import './Variables.scss';
+
+.login-container {
+  background-image: url(../../assets/black-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo {
+  width: 45vmin;
+  padding: 3vmin;
+  margin-top: 5vmin;
+  margin-left: 5vmin;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: $creamblur;
+  border-radius: 10px;
+  width: 50vmin;
+  padding: 4vmin;
+  align-items: center;
+  h1 {
+    font-family: $titulos;
+    font-weight: medium;
+    color: $yellow;
+    margin: 0;
+  }
+  .div-email,
+  .div-password {
+    display: flex;
+    border-bottom: 2.5px solid $yellow;
+    flex-direction: row;
+    justify-content: center;
+    width: 45vmin;
+    margin: 3vmin;
+  }
+  .icon-pass {
+    margin-bottom: 1vmin;
+  }
+  input {
+    width: 35vmin;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 2.5vmin;
+    font-family: $body;
+    color: $cream;
+    text-align: center;
+  }
+  ::placeholder {
+    color: $cream;
+    font-family: $body;
+    font-weight: 300;
+    text-align: center;
+    font-size: 3vmin;
+  }
+}
+.error {
+  font-family: $body;
+  color: $yellow;
+  font-size: 3vmin;
+  font-weight: 600;
+  margin: 0;
+}
+
+.login-btn {
+  appearance: button;
+  background-color: $yellow;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: $black;
+  cursor: pointer;
+  font-family: $titulos;
+  font-size: 2.5vmin;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 19px;
+  text-align: center;
+  //text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  margin-top: 4vmin;
+  width: 30vmin;
+
+  &:after {
+    background-clip: padding-box;
+    background-color: $orange;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    bottom: -4px;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+
+  &:focus {
+    user-select: auto;
+  }
+
+  &:hover:not(:disabled) {
+    filter: brightness(1.1);
+  }
+
+  &:disabled {
+    cursor: auto;
+  }
+
+  &:active:after {
+    border-width: 0 0 0px;
+  }
+
+  &:active {
+    padding-bottom: 10px;
+  }
+}
+
+@media (orientation: portrait) {
+  .login-container {
+    background-image: url(../../assets/black-background.jpg);
+    background-size: cover;
+    height: 134vmin;
+  }
+  .logo {
+    margin-top: 16vmin;
+  }
+  .login-form {
+    margin-top: 10vmin;
+  }
+  .login-btn {
+    margin-top: 6vmin;
+  }
+}
