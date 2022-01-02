@@ -17,6 +17,13 @@ const Users = () => {
         icon: 'warning',
         confirmButtonText: 'Aceptar'
       });
+    } else if (!rol.includes('mesero', 'cocinero', 'administrador')) {
+      Swal.fire({
+        title: 'Error!',
+        text: 'Falta elegir el rol',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar'
+      });
     } else {
       try {
         const infoUsuario = await createUserWithEmailAndPassword(
@@ -26,11 +33,10 @@ const Users = () => {
         ).then((usuarioFirebase) => usuarioFirebase);
         const docuRef = doc(db, `users/${infoUsuario.user.uid}`);
         setDoc(docuRef, { email, role: rol });
-        console.log('me registreee');
         Swal.fire({
           title: 'Registro Exitoso!',
           text: 'Se ha registrado nuevo usuario',
-          icon: 'succes',
+          icon: 'success',
           confirmButtonText: 'Aceptar'
         });
       } catch (error) {
@@ -41,7 +47,14 @@ const Users = () => {
   return (
     <div className="users-container">
       <FormUsers handleRegister={handleRegister} />
-      <InfoUsers />
+      <table className="usersData">
+        <tr>
+          <th>NOMBRE</th>
+          <th>ROL</th>
+          <th>EMAIL</th>
+        </tr>
+        <InfoUsers />
+      </table>
     </div>
   );
 };
