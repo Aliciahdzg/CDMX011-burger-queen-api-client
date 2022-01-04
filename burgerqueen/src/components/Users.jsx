@@ -3,10 +3,13 @@ import React from 'react';
 import Swal from 'sweetalert2';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
+
 import FormUsers from './FormUsers';
 import InfoUsers from './InfoUsers';
 
 import auth, { db } from '../firebase/firebaseConfig';
+
+import './styles/Administrator.scss';
 
 const Users = () => {
   const handleRegister = async (email, password, confirmPassword, rol) => {
