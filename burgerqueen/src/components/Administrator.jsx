@@ -5,7 +5,7 @@ import Header from './Header';
 import Users from './Users';
 import Menu from './Menu';
 
-import './styles/Administrator.scss';
+import './styles/Users.scss';
 
 const Administrator = ({ userData, setUserData }) => {
   const [activeOption, setActiveOption] = useState('users');
