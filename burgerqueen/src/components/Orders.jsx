@@ -28,9 +28,9 @@ const Orders = ({ userData, setUserData }) => {
 
   const api = helpHttp();
 
-  const urlB = 'http://localhost:3001/breakfastMenu';
-  const urlL = 'http://localhost:3001/lunchMenu';
-  const urlK = 'http://localhost:3001/kitchen';
+  const urlB = 'https://menubq-api.herokuapp.com/breakfastMenu';
+  const urlL = 'https://menubq-api.herokuapp.com/lunchMenu';
+  const urlK = 'https://menubq-api.herokuapp.com/kitchen';
 
   useEffect(() => {
     api.get(urlB).then((res) => {

@@ -11,7 +11,7 @@ const OrdersReady = () => {
   const [orderReady, setOrderReady] = useState([]);
 
   const api = helpHttp();
-  const urlK = 'http://localhost:3001/kitchen';
+  const urlK = 'https://menubq-api.herokuapp.com/kitchen';
 
   useEffect(() => {
     const endpoint = `${urlK}?status=pending&status=done`;

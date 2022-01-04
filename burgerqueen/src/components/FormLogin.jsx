@@ -10,7 +10,7 @@ const FormLogin = ({ handleLogin, error }) => {
   const [password, setPassword] = useState('');
 
   return (
-    <div className="login-container">
+    <>
       <form className="login-form">
         <h1>Inicia Sesión</h1>
         <div className="div-email">
@@ -49,7 +49,7 @@ const FormLogin = ({ handleLogin, error }) => {
       >
         Iniciar Sesión
       </button>
-    </div>
+    </>
   );
 };
 
