@@ -9,7 +9,7 @@ import InfoUsers from './InfoUsers';
 
 import auth, { db } from '../firebase/firebaseConfig';
 
-import './styles/Administrator.scss';
+import './styles/Users.scss';
 
 const Users = () => {
   const handleRegister = async (email, password, confirmPassword, rol) => {

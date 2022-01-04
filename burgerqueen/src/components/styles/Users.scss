@@ -1,0 +1,104 @@
+@import './Variables.scss';
+
+.admin-view{
+  background-image: url(../../assets/black-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vmin;
+}
+.admin{
+    margin-top: 8vmin;
+}
+.admin-options{
+    margin: 0 5vmin;
+    button {
+        font-family: $titulos;
+        margin-right: 1vmin;
+        background-color: transparent;
+        border-radius: 9px 9px 0px 0px;
+        border: 1px solid $orange;
+        font-size: 2.5vmin;
+        color: $orange;
+        cursor:pointer;
+    
+        &:focus {
+          background-color: $orange;
+          color: $black;
+        }
+    }
+}
+.active-option{
+    border-top: 2px solid $orange;
+    width: 90%;
+    margin: 0 5vmin;
+}
+.users-container{
+    background-color: $cream2;
+    height: 75vmin;
+    overflow: auto;
+    table{
+        margin: 0 0 3vmin 5vmin;
+        background-color: $creamblur;
+        width: 90%;
+        td{
+            border: 2px $orange;
+        }
+    }
+}
+.users-form{
+    margin-top: 0 5vmin ;
+}
+.register-form{
+    padding: 5vmin;
+    h3 {
+        margin: 0;
+        padding: 0.5vmin;
+        font-family: $body;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        background-color: $orange;
+        width: 17vmin;
+        border-radius: 10px 10px 0 0;
+        text-align: center;
+    }
+    form{
+        background-color: $creamblur;
+        padding: 1vmin;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        border-radius: 0 0 10px 10px;
+        input{
+            margin: 2vmin;
+            outline: none;
+            font-family: $body;
+            font-weight: 300;
+            font-size: 1.5vmin;
+            background: transparent;
+            border: none;
+            border-bottom: 2px $orange;
+        }
+        ::placeholder {
+            font-family: $body;
+            font-weight: 300;
+            font-size: 1.5vmin;
+          }
+          button{
+            background: transparent;
+            border: none;
+        }
+    }
+    
+}
+.custome-select{
+    background: transparent;
+    border: none;
+    font-family: $body;
+    font-weight: 300;
+    font-size: 1.5vmin;
+}
+.users-data{
+    background-color: $creamblur;
+}

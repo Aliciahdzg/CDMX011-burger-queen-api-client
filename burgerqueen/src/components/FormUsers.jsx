@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import { Icon } from '@iconify/react';
 
-import './styles/Administrator.scss';
+// import './styles/Users.scss';
 
 const FormUsers = ({ handleRegister }) => {
   const [email, setEmail] = useState('');
