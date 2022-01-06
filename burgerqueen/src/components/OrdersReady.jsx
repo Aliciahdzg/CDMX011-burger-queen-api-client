@@ -18,6 +18,7 @@ const OrdersReady = () => {
     api.get(endpoint).then((res) => {
       if (!res.err) {
         setOrderReady(res);
+        console.log(res);
       } else {
         setOrderReady(res.err);
       }
