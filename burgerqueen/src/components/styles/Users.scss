@@ -29,7 +29,7 @@
     }
 }
 .active-option{
-    border-top: 2px solid $orange;
+    border-top: 3px solid $orange;
     width: 90%;
     margin: 0 5vmin;
 }
@@ -40,7 +40,7 @@
     table{
         margin: 0 0 3vmin 5vmin;
         background-color: $creamblur;
-        width: 90%;
+        width: 93%;
         td{
             border: 2px $orange;
         }
@@ -51,6 +51,7 @@
 }
 .register-form{
     padding: 5vmin;
+    margin-top: 2vmin;
     h3 {
         margin: 0;
         padding: 0.5vmin;
@@ -73,12 +74,15 @@
         input{
             margin: 2vmin;
             outline: none;
+            line-height: normal;
             font-family: $body;
             font-weight: 300;
             font-size: 1.5vmin;
             background: transparent;
-            border: none;
-            border-bottom: 2px $orange;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom-color: $orange;
         }
         ::placeholder {
             font-family: $body;
@@ -88,6 +92,7 @@
           button{
             background: transparent;
             border: none;
+            margin-left: 2vmin;
         }
     }
     
@@ -95,9 +100,11 @@
 .custome-select{
     background: transparent;
     border: none;
+    border-color: $yellow;
     font-family: $body;
     font-weight: 300;
     font-size: 1.5vmin;
+    cursor: pointer;
 }
 .users-data{
     background-color: $creamblur;
