@@ -25,11 +25,11 @@ function InfoUsers() {
   }, []);
 
   return (
-    <div className="notes-container">
+    <>
       {users.map((user) => (
         <UsersInfoItem user={user} key={user.id} />
       ))}
-    </div>
+    </>
   );
 }
 

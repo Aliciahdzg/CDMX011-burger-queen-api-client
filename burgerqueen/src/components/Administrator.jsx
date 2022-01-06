@@ -5,13 +5,14 @@ import Header from './Header';
 import Users from './Users';
 import Menu from './Menu';
 
+import './styles/Users.scss';
+
 const Administrator = ({ userData, setUserData }) => {
   const [activeOption, setActiveOption] = useState('users');
 
   return (
-    <div>
+    <div className="admin-view">
       <Header userData={userData} setUserData={setUserData} />
-      <h3>Hola Admin</h3>
       <div className="admin">
         <div className="admin-options">
           <button
