@@ -8,6 +8,7 @@
 * [4. Criterios de aceptación del proyecto](#5-criterios-de-aceptación-del-proyecto)
 * [5. Prototipos de Alta fidelidad](#5-prototipos-de-alta-fidelidad)
 * [6. Links](#6-links)
+* [7. Pasos Siguientes](#7-pasos-siguientes)
 
 ***
 
@@ -312,6 +313,26 @@ para mantener actualizado el menú.
 
 ## 5. Prototipos de Alta fidelidad
 
-
+![login](https://github.com/danielapina/CDMX011-burger-queen-api-client/blob/main/imagenesPrototipo/login.png)
+![orders](https://github.com/danielapina/CDMX011-burger-queen-api-client/blob/main/imagenesPrototipo/waiterView.png)
+![kitchen](https://github.com/danielapina/CDMX011-burger-queen-api-client/blob/main/imagenesPrototipo/kitchenView.png)
+![admin-users](https://github.com/danielapina/CDMX011-burger-queen-api-client/blob/main/imagenesPrototipo/adminViewUsers.png)
+![admin-menu](https://github.com/danielapina/CDMX011-burger-queen-api-client/blob/main/imagenesPrototipo/adminViewMenu.png)
 
 ## 6. Links
+
+Pagina: https://burger-queen-70a0a.web.app/
+
+Usuarios para pruebas:
+mesero@burgerqueen.com contraseña: 12345678
+cocina@burgerqueen.com contraseña: 12345678
+admin@burgerqueen.com contraseña: 12345678
+
+[Link a Figma](https://www.figma.com/file/YSAXBZDwwyqkmwmSACn44C/BURGER-QUEEN--AC?node-id=0%3A1)
+
+## 7. Pasos Siguientes
+
+* Darle funcionalidad a los botones para editar y borrar usuarios en la vista de administrador
+* Terminar el diseño acorde al prototipo
+* Agregar componentes, funcionalidad y diseño a la vista de admin en la parte de menu
+* Realizar el testing correspondiente
