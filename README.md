@@ -324,9 +324,9 @@ para mantener actualizado el menú.
 Pagina: https://burger-queen-70a0a.web.app/
 
 Usuarios para pruebas:
-mesero@burgerqueen.com contraseña: 12345678
-cocina@burgerqueen.com contraseña: 12345678
-admin@burgerqueen.com contraseña: 12345678
+* mesero@burgerqueen.com contraseña: 12345678
+* cocina@burgerqueen.com contraseña: 12345678
+* admin@burgerqueen.com contraseña: 12345678
 
 [Link a Figma](https://www.figma.com/file/YSAXBZDwwyqkmwmSACn44C/BURGER-QUEEN--AC?node-id=0%3A1)
 
